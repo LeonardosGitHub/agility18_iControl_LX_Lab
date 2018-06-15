@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 3.3 - Interacting with 3rd Party Systems &mdash; Agility iControlLX extensions lab  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Module 4 - Installing the HelloWorld extension" href="../module4/module4.html" />
+    <link rel="prev" title="Lab 3.2 - Beyond “GET”" href="lab2.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Agility iControlLX extensions lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">Class 1 - F5 iControl LX extensions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../module0/module0.html">Module 0 - Accessing the Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">Module 1 - Understanding the iControl LX Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">Module 2 - Interacting with an iControl LX extension</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module3.html">Module 3 - Understanding iControl LX Extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab1.html">Lab 3.1 - Review the HelloWorld iControl LX Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html">Lab 3.2 - Beyond “GET”</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 3.3 - Interacting with 3rd Party Systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-using-restoperation">Task 1 - Using restOperation()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-creating-a-rest-call-using-native-node-js-http-requests">Task 2 - Creating a REST call using Native Node.js HTTP Requests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">Module 4 - Installing the HelloWorld extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/module5.html">Module 5 - My First iControl LX Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Agility iControlLX extensions lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../class1.html">Class 1 - F5 iControl LX extensions</a> &raquo;</li>
+        
+          <li><a href="module3.html">Module 3 - Understanding iControl LX Extensions</a> &raquo;</li>
+        
+      <li>Lab 3.3 - Interacting with 3rd Party Systems</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/class1/module3/lab3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-3-3-interacting-with-3rd-party-systems">
+<h1>Lab 3.3 - Interacting with 3rd Party Systems<a class="headerlink" href="#lab-3-3-interacting-with-3rd-party-systems" title="Permalink to this headline">¶</a></h1>
+<p>iControl LX can be used to communicate with external 3rd party systems/APIs via REST.</p>
+<p>To achieve this, one must understand how to create REST API calls within an
+iControl LX extension.</p>
+<p>There are two communication methods supported by the iControl LX Framework:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">restOperation()</span></code></li>
+<li>Native Node.js HTTP requests (<strong>recommended by F5</strong>)</li>
+</ol>
+<div class="section" id="task-1-using-restoperation">
+<h2>Task 1 - Using restOperation()<a class="headerlink" href="#task-1-using-restoperation" title="Permalink to this headline">¶</a></h2>
+<p>While you can use restOperation() to create REST transactions (using setURI(),
+setBody(), etc.) to 3rd party systems, F5 recommends you use the built-in
+Node.js functionality.</p>
+</div>
+<div class="section" id="task-2-creating-a-rest-call-using-native-node-js-http-requests">
+<h2>Task 2 - Creating a REST call using Native Node.js HTTP Requests<a class="headerlink" href="#task-2-creating-a-rest-call-using-native-node-js-http-requests" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will modify the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> extension to retrieve its
+operating state from a JSON file in GitHub:</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* A simple iControlLX extension that handles only HTTP GET</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">HelloWorld</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">WORKER_URI_PATH</span> <span class="o">=</span> <span class="s2">&quot;ilxe_lab/hello_world&quot;</span><span class="p">;</span>
+<span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isPublic</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Perform worker start functions</span>
+<span class="cm">*/</span>
+
+<span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">onStart</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;HelloWorld onStart()&quot;</span><span class="p">);</span>
+
+<span class="hll">  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="s2">&quot;method&quot;</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;raw.githubusercontent.com&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/n8labs/super-netops/master/worker_state.json&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;headers&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">      <span class="s2">&quot;cache-control&quot;</span><span class="o">:</span> <span class="s2">&quot;no-cache&quot;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">};</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">});</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">      <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">chunks</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">});</span>
+</span><span class="hll">  <span class="p">});</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span>
+  <span class="nx">success</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="cm">/**</span>
+<span class="cm">* handle onGet HTTP request</span>
+<span class="cm">*/</span>
+<span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">onGet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">restOperation</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">  <span class="nx">restOperation</span><span class="p">.</span><span class="nx">setBody</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">);</span>
+</span>  <span class="k">this</span><span class="p">.</span><span class="nx">completeRestOperation</span><span class="p">(</span><span class="nx">restOperation</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cm">/**</span>
+<span class="cm">* handle /example HTTP request</span>
+<span class="cm">*/</span>
+<span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getExampleState</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;your_string&quot;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">HelloWorld</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>With these modifications, anytime a HTTP GET is sent to
+<code class="docutils literal notranslate"><span class="pre">/mgmt/ilxe_lab/hello_world</span></code> it will reply with the JSON blob that was
+retrieved from GitHub when the worker was initially loaded.</p>
+<p>Also, note the change in <code class="docutils literal notranslate"><span class="pre">onGet()</span></code> to <code class="docutils literal notranslate"><span class="pre">restOperation.setBody()</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you’ve already got the call to another system working in the
+POSTMAN REST client, you can click the <span class="guilabel">Generate Code</span> button to
+get the Node.js code.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module4/module4.html" class="btn btn-neutral float-right" title="Module 4 - Installing the HelloWorld extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lab2.html" class="btn btn-neutral" title="Lab 3.2 - Beyond “GET”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, F5.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

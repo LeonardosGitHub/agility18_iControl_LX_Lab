@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 1.1 - The Daemons &mdash; Agility iControlLX extensions lab  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 1.2 - Troubleshooting, Logs, etc" href="lab2.html" />
+    <link rel="prev" title="Module 1 - Understanding the iControl LX Architecture" href="module1.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Agility iControlLX extensions lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">Class 1 - F5 iControl LX extensions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../module0/module0.html">Module 0 - Accessing the Lab Environment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module1.html">Module 1 - Understanding the iControl LX Architecture</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 1.1 - The Daemons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#understand-the-two-primary-daemons">Understand the Two Primary Daemons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-start-stop-restart-the-daemons">Task 1 - Start/Stop/Restart the Daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html">Lab 1.2 - Troubleshooting, Logs, etc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">Module 2 - Interacting with an iControl LX extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">Module 3 - Understanding iControl LX Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">Module 4 - Installing the HelloWorld extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/module5.html">Module 5 - My First iControl LX Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Agility iControlLX extensions lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../class1.html">Class 1 - F5 iControl LX extensions</a> &raquo;</li>
+        
+          <li><a href="module1.html">Module 1 - Understanding the iControl LX Architecture</a> &raquo;</li>
+        
+      <li>Lab 1.1 - The Daemons</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/class1/module1/lab1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-1-1-the-daemons">
+<h1>Lab 1.1 - The Daemons<a class="headerlink" href="#lab-1-1-the-daemons" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="understand-the-two-primary-daemons">
+<h2>Understand the Two Primary Daemons<a class="headerlink" href="#understand-the-two-primary-daemons" title="Permalink to this headline">¶</a></h2>
+<p>When developing iControl LX extensions, there are two daemons to be aware of:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">restjavad</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">restnoded</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">restjavad</span></code> presents the F5 iControl REST API, the interface to BIG-IP devices
+and the iWorkflow platform.</p>
+<p><code class="docutils literal notranslate"><span class="pre">restnoded</span></code> presents services for developing iControl LX extensions, in
+addition to acting as the interface to <code class="docutils literal notranslate"><span class="pre">restjavad</span></code> and the iControl REST API.</p>
+<a class="reference internal image-reference" href="class1/module1/../../_static/class1/module1/lab1-image001.png"><img alt="class1/module1/../../_static/class1/module1/lab1-image001.png" class="align-center" src="class1/module1/../../_static/class1/module1/lab1-image001.png" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the diagram above, the orange line represents an iControl REST
+resource that ships with the BIG-IP/iWorkflow platform. The green line
+represents a REST call to a custom iControl LX extension.</p>
+</div>
+</div>
+<div class="section" id="task-1-start-stop-restart-the-daemons">
+<h2>Task 1 - Start/Stop/Restart the Daemons<a class="headerlink" href="#task-1-start-stop-restart-the-daemons" title="Permalink to this headline">¶</a></h2>
+<p>Perform the following steps to complete this task:</p>
+<ol class="arabic">
+<li><p class="first">Connect via ssh to your iWorkflow platform (a shortcut already exists in
+PuTTY - <code class="docutils literal notranslate"><span class="pre">10.1.10.20</span></code>, <code class="docutils literal notranslate"><span class="pre">root/default</span></code>). Execute the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">status</span> <span class="pre">restnoded</span></code></p>
+<p>Example output:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ bigstart status restnoded
+restnoded    run (pid 6209) 40 days
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can specify multiple daemons with the <code class="docutils literal notranslate"><span class="pre">bigstart</span></code> command. For
+example, the following will get the status of both ‘restjavad’ and
+‘restnoded’:</p>
+<p><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">status</span> <span class="pre">restjavad</span> <span class="pre">restnoded</span></code></p>
+<p>To get the status of ALL F5 controlled daemons execute:</p>
+<p><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">status</span></code></p>
+<p class="last">Please see <a class="reference external" href="https://support.f5.com/csp/article/K13444">K13444</a> if you wish to learn more about <code class="docutils literal notranslate"><span class="pre">bigstart</span></code>.</p>
+</div>
+</li>
+<li><p class="first">The following bigstart commands are supported:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">status</span> <span class="pre">&lt;daemon&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">start</span> <span class="pre">&lt;daemon&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">restart</span> <span class="pre">&lt;daemon&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">stop</span> <span class="pre">&lt;daemon&gt;</span></code></li>
+</ul>
+</li>
+<li><p class="first">Restart the <code class="docutils literal notranslate"><span class="pre">restnoded</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">restjavad</span></code> daemons by executing:</p>
+<p><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">restart</span> <span class="pre">restjavad</span> <span class="pre">restnoded</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You won’t see any logs in CLI when using this command. You’ll
+need to check the log files <cite>/var/log/restjavad.0.log</cite> and
+<cite>/var/log/restnoded/restnoded.log</cite>. This is covered in the next lab.</p>
+</div>
+</li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lab2.html" class="btn btn-neutral float-right" title="Lab 1.2 - Troubleshooting, Logs, etc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="module1.html" class="btn btn-neutral" title="Module 1 - Understanding the iControl LX Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, F5.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

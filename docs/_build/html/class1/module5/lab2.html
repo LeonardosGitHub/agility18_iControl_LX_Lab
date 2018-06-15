@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 5.2 - Test and Troubleshoot the Extension &mdash; Agility iControlLX extensions lab  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Lab 5.1 - Install the iControl LX package" href="lab1.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Agility iControlLX extensions lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">Class 1 - F5 iControl LX extensions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../module0/module0.html">Module 0 - Accessing the Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">Module 1 - Understanding the iControl LX Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">Module 2 - Interacting with an iControl LX extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">Module 3 - Understanding iControl LX Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">Module 4 - Installing the HelloWorld extension</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module5.html">Module 5 - My First iControl LX Extension</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab1.html">Lab 5.1 - Install the iControl LX package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 5.2 - Test and Troubleshoot the Extension</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-deploy-services-via-the-extension">Task 1 - Deploy Services via the Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-delete-services-via-the-extension">Task 2 - Delete services via the extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Agility iControlLX extensions lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../class1.html">Class 1 - F5 iControl LX extensions</a> &raquo;</li>
+        
+          <li><a href="module5.html">Module 5 - My First iControl LX Extension</a> &raquo;</li>
+        
+      <li>Lab 5.2 - Test and Troubleshoot the Extension</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/class1/module5/lab2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-5-2-test-and-troubleshoot-the-extension">
+<h1>Lab 5.2 - Test and Troubleshoot the Extension<a class="headerlink" href="#lab-5-2-test-and-troubleshoot-the-extension" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="task-1-deploy-services-via-the-extension">
+<h2>Task 1 - Deploy Services via the Extension<a class="headerlink" href="#task-1-deploy-services-via-the-extension" title="Permalink to this headline">¶</a></h2>
+<p>To deploy services, we need to push <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests to
+<code class="docutils literal notranslate"><span class="pre">/mgmt/share/my-app-interface</span></code>.</p>
+<p>Just like for the RPM installation process, we can either use a Postman
+collection or use newman.</p>
+<p>To see what the extension is doing:</p>
+<ul class="simple">
+<li>You can monitor its logs in <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code>: Open a
+Putty session on iWorkflow and let the following command run:
+<code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/var/log/restnoded/restnoded.log</span></code>. This way you should see all
+action logged by the extension.</li>
+<li>Connect to your BIG-IP UI (login <code class="docutils literal notranslate"><span class="pre">admin</span></code>, password <code class="docutils literal notranslate"><span class="pre">admin</span></code>) and
+iWorkflow UI (login <code class="docutils literal notranslate"><span class="pre">student</span></code>, password <code class="docutils literal notranslate"><span class="pre">student</span></code>) to see services being
+added/deleted. You have shortcuts in your Chrome browser</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Some limitations of the extension / IPAM solution to be aware of:</p>
+<ul class="last simple">
+<li>Only 8 IPs have been allocated to deploy services in the IPAM simulator
+(10.1.20.100-10.1.20.107) so don’t try to deploy more services, it will fail</li>
+<li>Here we only handle the use case where we deploy 2 pool members for each
+app. Don’t try to push only one server or more than 2</li>
+</ul>
+</div>
+<div class="section" id="use-postman">
+<h3>Use Postman<a class="headerlink" href="#use-postman" title="Permalink to this headline">¶</a></h3>
+<p>Perform the following steps to complete this task:</p>
+<ol class="arabic">
+<li><p class="first">Open your Postman application in your JumpHost and select the collection
+called <code class="docutils literal notranslate"><span class="pre">My-App-Interface</span></code></p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image001.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image001.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image001.png" /></a>
+</li>
+<li><p class="first">Select also <code class="docutils literal notranslate"><span class="pre">My-App-Interface</span></code> environment variables</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image002.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image002.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image002.png" /></a>
+</li>
+<li><p class="first">In this collection you have different things you can do:</p>
+<ul class="simple">
+<li>Deploy a HTTP and/or TCP Service</li>
+<li>Delete a Service</li>
+</ul>
+</li>
+<li><p class="first">For each workflow you want to trigger, make sure that you do the Calls in
+the order they are set in the folder. Make sure to review the response payload</p>
+<p>For example to deploy a HTTP Service, in the folder <code class="docutils literal notranslate"><span class="pre">Create-Service-HTTP</span></code>:</p>
+<ol class="arabic simple">
+<li>Click <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">a</span> <span class="pre">token</span> <span class="pre">from</span> <span class="pre">iWorkflow</span></code> and click <span class="guilabel">Send</span></li>
+<li>Click <code class="docutils literal notranslate"><span class="pre">Increase</span> <span class="pre">Auth</span> <span class="pre">token</span> <span class="pre">timeout</span></code> and click <span class="guilabel">Send</span></li>
+<li>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">HTTP</span> <span class="pre">Service</span></code> and click <span class="guilabel">Send</span></li>
+<li>Click <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">HTTP</span> <span class="pre">Service</span></code> and click <span class="guilabel">Send</span></li>
+</ol>
+</li>
+</ol>
+<p>You can review that everything happened as expected through the iWorkflow and
+BIG-IP UI also.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your service definition is done in your <code class="docutils literal notranslate"><span class="pre">My-App-Interface</span></code>
+environment. So if you want to deploy multiple services, make sure you
+update it accordingly.</p>
+</div>
+</div>
+<div class="section" id="use-postman-create-http-service-example">
+<h3>Use Postman - Create HTTP Service Example<a class="headerlink" href="#use-postman-create-http-service-example" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Here is an example of deploying the HTTP Service (<code class="docutils literal notranslate"><span class="pre">Create-Service-HTTP</span></code>
+folder in POSTMAN):</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image004.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image004.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image004.png" /></a>
+</li>
+<li><p class="first">Here is the response from the POST Request:</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image005.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image005.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image005.png" /></a>
+</li>
+<li><p class="first">Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on iWorkflow:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span><span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">retrieved</span> <span class="n">IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.100</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceretrieve</span> <span class="n">connector</span> <span class="n">ID</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">connector</span> <span class="n">name</span> <span class="ow">is</span> <span class="p">:</span> <span class="n">BIG</span><span class="o">-</span><span class="n">IP</span><span class="o">-</span><span class="n">student</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">connector</span> <span class="n">ID</span> <span class="ow">is</span> <span class="p">:</span> <span class="mi">58</span><span class="n">df07a5</span><span class="o">-</span><span class="n">f51c</span><span class="o">-</span><span class="mi">45</span><span class="n">ac</span><span class="o">-</span><span class="n">a35b</span><span class="o">-</span><span class="mi">406</span><span class="n">cfb35840c</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="n">update</span> <span class="n">service</span> <span class="n">BODY</span> <span class="ow">is</span><span class="p">:</span> <span class="s2">&quot;{ </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">my-application</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">tenantTemplateReference</span><span class="se">\&quot;</span><span class="s2">: { </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">tenantReference</span><span class="se">\&quot;</span><span class="s2">: { </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenants/student</span><span class="se">\&quot;</span><span class="s2">},</span><span class="se">\&quot;</span><span class="s2">vars</span><span class="se">\&quot;</span><span class="s2">: [ { </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2"> : </span><span class="se">\&quot;</span><span class="s2">pool__port</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2"> : </span><span class="se">\&quot;</span><span class="s2">80</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">pool__addr</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">10.1.20.100</span><span class="se">\&quot;</span><span class="s2">}], </span><span class="se">\&quot;</span><span class="s2">tables</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t</span><span class="s2">{</span><span class="se">\n\t\t\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">pool__Members</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\&quot;</span><span class="s2">columns</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t\t\t\&quot;</span><span class="s2">IPAddress</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\&quot;</span><span class="s2">State</span><span class="se">\&quot;\n\t\t</span><span class="s2">],</span><span class="se">\n\t\t\&quot;</span><span class="s2">rows</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t\t\t</span><span class="s2">[</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">10.1.10.10</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">enabled</span><span class="se">\&quot;\n\t\t\t</span><span class="s2">],</span><span class="se">\n\t\t\t</span><span class="s2">[</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">10.1.10.11</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">enabled</span><span class="se">\&quot;\n\t\t\t</span><span class="s2">]</span><span class="se">\n\t\t</span><span class="s2">]</span><span class="se">\n\t</span><span class="s2">}</span><span class="se">\n</span><span class="s2">],</span><span class="se">\&quot;</span><span class="s2">properties</span><span class="se">\&quot;</span><span class="s2">: [{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">cloudConnectorReference</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">isRequired</span><span class="se">\&quot;</span><span class="s2">: false, </span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/connectors/local/58df07a5-f51c-45ac-a35b-406cfb35840c</span><span class="se">\&quot;</span><span class="s2">}],</span><span class="se">\&quot;</span><span class="s2">selfLink</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenants/student/services/iapp/my-application</span><span class="se">\&quot;</span><span class="s2">}&quot;</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">function</span> <span class="n">RestPostRequest</span><span class="p">,</span> <span class="n">Service</span> <span class="n">created</span> <span class="n">successfully</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Logging as <code class="docutils literal notranslate"><span class="pre">student</span></code> on the iWorkflow UI:</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image006.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image006.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image006.png" /></a>
+</li>
+<li><p class="first">Check our BIG-IP configuration via the UI:</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image007.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image007.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image007.png" /></a>
+</li>
+<li><p class="first">You can review the configuration via Postman (<code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">HTTP</span> <span class="pre">Service</span></code> in the same folder):</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image014.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image014.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image014.png" /></a>
+</li>
+</ol>
+</div>
+<div class="section" id="use-newman">
+<h3>Use Newman<a class="headerlink" href="#use-newman" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Launch the command prompt that is pinned in your taskbar</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab1-image006.png"><img alt="class1/module5/../../_static/class1/module5/lab1-image006.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab1-image006.png" /></a>
+</li>
+<li><p class="first">You already have a few scripts setup to deploy/delete services:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">2_Create_HTTP_Service</span></code>: will create a HTTP based service</li>
+<li><code class="docutils literal notranslate"><span class="pre">3_Create_TCP_Service</span></code>:  will create a TCP based service</li>
+<li><code class="docutils literal notranslate"><span class="pre">4_Delete_HTTP_Service</span></code>: will delete the created HTTP based service</li>
+<li><code class="docutils literal notranslate"><span class="pre">5_Delete_TCP_Service</span></code>: will delete the created TCP based service</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to change the service that is created a little bit,
+you can edit the relevant bat script. You’ll find all the parameters
+related to the service in the script. You can open the folder containing
+all the scripts, right click on the script you want to update and
+edit it with <code class="docutils literal notranslate"><span class="pre">Notepad++</span></code></p>
+</div>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image003.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image003.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image003.png" /></a>
+</li>
+</ol>
+</div>
+<div class="section" id="use-newman-create-http-service-example">
+<h3>Use Newman - Create HTTP Service Example<a class="headerlink" href="#use-newman-create-http-service-example" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">We launch the command prompt that is pinned in your taskbar</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab1-image006.png"><img alt="class1/module5/../../_static/class1/module5/lab1-image006.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab1-image006.png" /></a>
+</li>
+<li><p class="first">We will launch the script called <code class="docutils literal notranslate"><span class="pre">2_Create_HTTP_Service</span></code> and review the
+output</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image010.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image010.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image010.png" /></a>
+</li>
+<li><p class="first">Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on iWorkflow:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceIPAM</span> <span class="n">REST</span> <span class="n">Call</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">5</span> <span class="n">closed</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceIPAM</span> <span class="n">REST</span> <span class="n">Call</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">retrieved</span> <span class="n">IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="n">update</span> <span class="n">service</span> <span class="n">BODY</span> <span class="ow">is</span><span class="p">:</span> <span class="s2">&quot;{ </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">my-web-app</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">tenantTemplateReference</span><span class="se">\&quot;</span><span class="s2">: { </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">tenantReference</span><span class="se">\&quot;</span><span class="s2">: { </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenants/student</span><span class="se">\&quot;</span><span class="s2">},</span><span class="se">\&quot;</span><span class="s2">vars</span><span class="se">\&quot;</span><span class="s2">: [ { </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2"> : </span><span class="se">\&quot;</span><span class="s2">pool__port</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2"> : </span><span class="se">\&quot;</span><span class="s2">80</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">pool__addr</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">10.1.20.104</span><span class="se">\&quot;</span><span class="s2">}], </span><span class="se">\&quot;</span><span class="s2">tables</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t</span><span class="s2">{</span><span class="se">\n\t\t\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">pool__Members</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\&quot;</span><span class="s2">columns</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t\t\t\&quot;</span><span class="s2">IPAddress</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\&quot;</span><span class="s2">State</span><span class="se">\&quot;\n\t\t</span><span class="s2">],</span><span class="se">\n\t\t\&quot;</span><span class="s2">rows</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n\t\t\t</span><span class="s2">[</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">10.1.10.10</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">enabled</span><span class="se">\&quot;\n\t\t\t</span><span class="s2">],</span><span class="se">\n\t\t\t</span><span class="s2">[</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">10.1.10.11</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n\t\t\t\t\&quot;</span><span class="s2">enabled</span><span class="se">\&quot;\n\t\t\t</span><span class="s2">]</span><span class="se">\n\t\t</span><span class="s2">]</span><span class="se">\n\t</span><span class="s2">}</span><span class="se">\n</span><span class="s2">],</span><span class="se">\&quot;</span><span class="s2">properties</span><span class="se">\&quot;</span><span class="s2">: [{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">cloudConnectorReference</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">isRequired</span><span class="se">\&quot;</span><span class="s2">: false, </span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/connectors/local/58df07a5-f51c-45ac-a35b-406cfb35840c</span><span class="se">\&quot;</span><span class="s2">}],</span><span class="se">\&quot;</span><span class="s2">selfLink</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost/mgmt/cm/cloud/tenants/student/services/iapp/my-web-app</span><span class="se">\&quot;</span><span class="s2">}&quot;</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">function</span> <span class="n">RestPostRequest</span><span class="p">,</span> <span class="n">Service</span> <span class="n">created</span> <span class="n">successfully</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can check the service got deployed properly on iWorkflow (student tenant) and on your BIG-IP</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image011.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image011.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image011.png" /></a>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image012.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image012.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image012.png" /></a>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-2-delete-services-via-the-extension">
+<h2>Task 2 - Delete services via the extension<a class="headerlink" href="#task-2-delete-services-via-the-extension" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use-postman-delete-http-service-example">
+<h3>Use Postman - Delete HTTP Service Example<a class="headerlink" href="#use-postman-delete-http-service-example" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of removing the HTTP service (<code class="docutils literal notranslate"><span class="pre">Delete-Service</span></code> folder in
+Postman):</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image008.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image008.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image008.png" /></a>
+<p>Here is the response when we delete the service:</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image009.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image009.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image009.png" /></a>
+<p>Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on iWorkflow:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">4</span> <span class="n">opened</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span><span class="p">()</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">4</span> <span class="n">closed</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">VS_IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">39</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">Service</span> <span class="n">Deleted</span><span class="p">,</span> <span class="n">release</span> <span class="n">IP</span> <span class="kn">from</span> <span class="nn">IPAM</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
+</pre></div>
+</div>
+<p>Check that your service disappeared from iWorkflow and BIG-IP</p>
+</div>
+<div class="section" id="use-newman-delete-http-service-example">
+<h3>Use newman - Delete HTTP Service Example<a class="headerlink" href="#use-newman-delete-http-service-example" title="Permalink to this headline">¶</a></h3>
+<p>We will launch the script called <code class="docutils literal notranslate"><span class="pre">4_Delete_HTTP_Service</span></code> and review the output</p>
+<a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image013.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image013.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image013.png" /></a>
+<p>Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on iWorkflow:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span><span class="p">()</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">6</span> <span class="n">closed</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">54</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">VS_IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
+<span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">54</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">Service</span> <span class="n">Deleted</span><span class="p">,</span> <span class="n">release</span> <span class="n">IP</span> <span class="kn">from</span> <span class="nn">IPAM</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
+</pre></div>
+</div>
+<p>You can check the service got deleted properly on iWorkflow (student tenant)
+and on your BIG-IP</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the postman collection we also have an example on how to update
+the deployed HTTP/TCP service. The folders are called <code class="docutils literal notranslate"><span class="pre">Update-HTTP-Service</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Update-TCP-Service</span></code>. It shows how you can update an existing service
+to disable the first server, for example.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="lab1.html" class="btn btn-neutral" title="Lab 5.1 - Install the iControl LX package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, F5.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

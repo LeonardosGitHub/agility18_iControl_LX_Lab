@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 4.5 - Delete the Package &mdash; Agility iControlLX extensions lab  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Module 5 - My First iControl LX Extension" href="../module5/module5.html" />
+    <link rel="prev" title="Lab 4.4 - Install our iControl LX RPM" href="lab4.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Agility iControlLX extensions lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">Class 1 - F5 iControl LX extensions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../module0/module0.html">Module 0 - Accessing the Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">Module 1 - Understanding the iControl LX Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">Module 2 - Interacting with an iControl LX extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">Module 3 - Understanding iControl LX Extensions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module4.html">Module 4 - Installing the HelloWorld extension</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab1.html">Lab 4.1 - Creating the HelloWorld iControl LX Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html">Lab 4.2 - Updating the HelloWorld iControl LX Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab3.html">Lab 4.3 - Create a New iControl LX Extension RPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab4.html">Lab 4.4 - Install our iControl LX RPM</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 4.5 - Delete the Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-verify-the-packagename">Task 1 - Verify the ‘packageName’</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-create-the-delete-task">Task 2 - Create the ‘delete’ Task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-optional-verify-the-icontrol-lx-extension-was-deleted">Task 3 - [OPTIONAL] Verify the iControl LX Extension was Deleted</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/module5.html">Module 5 - My First iControl LX Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Agility iControlLX extensions lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../class1.html">Class 1 - F5 iControl LX extensions</a> &raquo;</li>
+        
+          <li><a href="module4.html">Module 4 - Installing the HelloWorld extension</a> &raquo;</li>
+        
+      <li>Lab 4.5 - Delete the Package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/class1/module4/lab5.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-4-5-delete-the-package">
+<h1>Lab 4.5 - Delete the Package<a class="headerlink" href="#lab-4-5-delete-the-package" title="Permalink to this headline">¶</a></h1>
+<p>It’s important to know how to remove an iControl LX extension in case an
+extension is not needed anymore</p>
+<div class="section" id="task-1-verify-the-packagename">
+<h2>Task 1 - Verify the ‘packageName’<a class="headerlink" href="#task-1-verify-the-packagename" title="Permalink to this headline">¶</a></h2>
+<p>Perform the following steps to complete this task:</p>
+<ol class="arabic">
+<li><p class="first">To verify the package name, from your <code class="docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">Server</span></code>, run the following
+command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+</li>
+<li><p class="first">The output should be:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;68e109f0-f40c-372a-95e0-5cc22786f8e6&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;appName&quot;</span><span class="p">:</span> <span class="s2">&quot;HelloWorld&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;packageName&quot;</span><span class="p">:</span> <span class="s2">&quot;HelloWorld-0.1-001.noarch&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;001&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;arch&quot;</span><span class="p">:</span> <span class="s2">&quot;noarch&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;IAPP&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;generation&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdateMicros&quot;</span><span class="p">:</span> <span class="mi">1509360548703082</span><span class="p">,</span>
+      <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;shared:iapp:global-installed-packages:installedpackagestate&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;selfLink&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/iapp/global-installed-packages/68e109f0-f40c-372a-95e0-5cc22786f8e6&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;generation&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;shared:iapp:global-installed-packages:installedpackagecollectionstate&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lastUpdateMicros&quot;</span><span class="p">:</span> <span class="mi">1509360548703335</span><span class="p">,</span>
+  <span class="s2">&quot;selfLink&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/iapp/global-installed-packages&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can see that <code class="docutils literal notranslate"><span class="pre">packageName</span></code> is <code class="docutils literal notranslate"><span class="pre">HelloWorld-0.1-001.noarch</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-create-the-delete-task">
+<h2>Task 2 - Create the ‘delete’ Task<a class="headerlink" href="#task-2-create-the-delete-task" title="Permalink to this headline">¶</a></h2>
+<p>Perform the following steps to complete this task:</p>
+<ol class="arabic">
+<li><p class="first">To delete the HelloWorld iControl LX extension, perform the following POST to
+the ‘package-management-tasks’ REST resource.</p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;operation&quot;:</span> <span class="pre">&quot;UNINSTALL&quot;,&quot;packageName&quot;:</span> <span class="pre">&quot;HelloWorld-0.1-001.noarch&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/package-management-tasks</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+</li>
+<li><p class="first">A typical response looks like:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;packageName&quot;</span><span class="p">:</span> <span class="s2">&quot;HelloWorld-0.1-001.noarch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;UNINSTALL&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;075149e9-3448-4ce1-88db-c6d877eff772&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CREATED&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;userReference&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/authz/users/admin&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;identityReferences&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/authz/users/admin&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;ownerMachineId&quot;</span><span class="p">:</span> <span class="s2">&quot;2865e578-0460-44f4-910a-8dc7f220fce1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;generation&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;lastUpdateMicros&quot;</span><span class="p">:</span> <span class="mi">1508332360754713</span><span class="p">,</span>
+  <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;shared:iapp:package-management-tasks:iapppackagemanagementtaskstate&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;selfLink&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/iapp/package-management-tasks/075149e9-3448-4ce1-88db-c6d877eff772&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you have a iWorkflow terminal, check it, you should see something like
+this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Oct</span> <span class="pre">18</span> <span class="pre">15:18:37</span> <span class="pre">iworkflow</span> <span class="pre">emerg</span> <span class="pre">logger:</span> <span class="pre">Re-starting</span> <span class="pre">restnoded</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-optional-verify-the-icontrol-lx-extension-was-deleted">
+<h2>Task 3 - [OPTIONAL] Verify the iControl LX Extension was Deleted<a class="headerlink" href="#task-3-optional-verify-the-icontrol-lx-extension-was-deleted" title="Permalink to this headline">¶</a></h2>
+<p>Perform the following steps to complete this task:</p>
+<ol class="arabic">
+<li><p class="first">Perform a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">global-installed-packages</span></code> to confirm it is
+no longer there:</p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+</li>
+<li><p class="first">The output should look like:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;generation&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;shared:iapp:global-installed-packages:installedpackagecollectionstate&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lastUpdateMicros&quot;</span><span class="p">:</span> <span class="mi">1508332717062299</span><span class="p">,</span>
+  <span class="s2">&quot;selfLink&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/iapp/global-installed-packages&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can also try to access the iControl LX extension:</p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p>Here your request should fail and the output should be similar to this:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innererror&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;referer&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.143.1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;originalRequestBody&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;errorStack&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you connect to the iWorkflow platform, you should see that the folder
+<code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> has been automatically removed from
+<code class="docutils literal notranslate"><span class="pre">/var/config/rest/iapps</span></code>.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module5/module5.html" class="btn btn-neutral float-right" title="Module 5 - My First iControl LX Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lab4.html" class="btn btn-neutral" title="Lab 4.4 - Install our iControl LX RPM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, F5.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
