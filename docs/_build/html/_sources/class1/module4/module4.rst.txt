@@ -8,7 +8,7 @@ illustrating the package management system.
 .. NOTE::
 
   In this lab, we will make you do edits on the platform itself.
-  You'll connect on iWorkflow and do everything on it. It's not necessarily
+  You'll connect on BIG-IP and do everything on it. It's not necessarily
   a best practice. You could also have a local version on your JumpHost and use
   ``Notepad++`` (already installed on your JumpHost, feel free to install
   something else) to do the work. Once your file is updated accordingly,
@@ -18,7 +18,7 @@ illustrating the package management system.
 
 - Lab 4.1 - Creating the Hello-World iControl LX Extension
 
-  - Task 1 - Create our iControl LX Extension on iWorkflow
+  - Task 1 - Create our iControl LX Extension on BIG-IP
   - Task 2 - Check our iControl LX Extension is Working
 
 - Lab 4.2 - Update our iControl LX Extension

@@ -1,31 +1,31 @@
 Lab 4.4 - Install our iControl LX RPM
 -------------------------------------
 
-Let's try to install our iControl LX RPM on iWorkflow.
+Let's try to install our iControl LX RPM on BIG-IP.
 
 To install the iControl LX extension, first you need to copy the iControl LX
-package onto your iWorkflow device in the right folder. It should be in the
+package onto your BIG-IP device in the right folder. It should be in the
 following directory: ``/var/config/rest/downloads``
 
-Use your iWorkflow ssh session and run the following command:
+Use your BIG-IP ssh session and run the following command:
 
 ``mv /var/config/rest/iapps/RPMS/HelloWorld-0.1-001.noarch.rpm /var/config/rest/downloads/``
 
 Here, we just had to move the RPM from a folder to another since already on the
-iWorkflow platform. You can ensure the transfer was successful by checking the
+BIG-IP platform. You can ensure the transfer was successful by checking the
 folder ``/var/config/rest/downloads``.
 
 
 Task 1 - Review the installed iControl LX Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First lets take a look at the packages installed on your iWorkflow platform.
+First lets take a look at the packages installed on your BIG-IP platform.
 
 Perform the following steps to complete this task:
 
 #. From your ``Linux Server`, run the following command:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/global-installed-packages | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
    Response:
 
@@ -64,7 +64,7 @@ Perform the following steps to complete this task:
 
 #. Let's use your terminal to run the following command:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"operation": "INSTALL","packageFilePath": "/var/config/rest/downloads/HelloWorld-0.1-001.noarch.rpm"}' https://10.1.10.20/mgmt/shared/iapp/package-management-tasks | jq``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"operation": "INSTALL","packageFilePath": "/var/config/rest/downloads/HelloWorld-0.1-001.noarch.rpm"}' https://10.1.1.245/mgmt/shared/iapp/package-management-tasks | jq``
 
 #. The output should look like this:
 
@@ -95,7 +95,7 @@ Perform the following steps to complete this task:
 
    From your terminal:
 
-   ``curl -k -u admin:admin  https://10.1.10.20/mgmt/shared/iapp/package-management-tasks/4d62ae98-5302-41ee-8057-479b28372b9f | jq``
+   ``curl -k -u admin:admin  https://10.1.1.245/mgmt/shared/iapp/package-management-tasks/4d62ae98-5302-41ee-8057-479b28372b9f | jq``
 
    .. WARNING::  Replace the ID in the curl command
       (``4d62ae98-5302-41ee-8057-479b28372b9f``) with your own ``id``
@@ -168,7 +168,7 @@ Perform the following steps to complete this task:
    * reviewing the folder ``/var/config/rest/iapps/``
    * check the output of the command (from your Linux Server)
 
-     ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/global-installed-packages | jq``
+     ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
      .. code::
 
@@ -177,7 +177,7 @@ Perform the following steps to complete this task:
 
 #. We can see that the HelloWorld folder is back here.
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/global-installed-packages | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
    .. code::
 
@@ -228,19 +228,19 @@ Task 3 - Test our iControl Extension
 
 #. You can simply redo some of our previous tests to see the outcome:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this:
 
    ``{"value":"Congratulations on your lab!"}``
 
-#. Execute ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+#. Execute ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
    The console output should look like this:
 
    ``{"value":"Hello iControl LX Lab!"}``
 
-#. Execute ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+#. Execute ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this (the name parameter wasn't found in
    the POST payload):

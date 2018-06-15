@@ -6,7 +6,7 @@ with iControl. This is the iControl LX 'presentation' extension. This iControl
 LX extension present the REST API with a graphical interface. In this lab, we
 will test it.
 
-Typically, when you login to iWorkflow via the Web Interface you are redirected
+Typically, when you login to BIG-IP via the Web Interface you are redirected
 to `/mgmt/xui`. In this exercise we are going to review the REST API via the
 Web interface, which looks like this:
 
@@ -19,12 +19,12 @@ Task 1 - View the API via Web Browser
 
 Perform the following steps to complete this task:
 
-#. In your browser, navigate to: ``https://10.1.10.20/mgmt/toc``
+#. In your browser, navigate to: ``https://10.1.1.245/mgmt/toc``
 
 #. Enter the ``admin`` user credentials (it should be ``admin/admin``).
 
 #. You are now presented with the top level of REST collections/resources
-   available on the iWorkflow platform.
+   available on the BIG-IP platform.
 
    .. image:: ../../_static/class1/module2/lab1-image002.png
       :align: center
@@ -66,7 +66,7 @@ web interface.
 #. Click the 'Back' button in your browser to return to the ``/presentation#/``
    view. The URL should now be:
 
-   ``https://10.1.10.20/mgmt/shared/echo/presentation#/``
+   ``https://10.1.1.245/mgmt/shared/echo/presentation#/``
 
 Task 4 - Editing a REST Resource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -16,23 +16,18 @@ Here is the lab topology:
      - **IP**
      - **Credentials**
    * - BIG-IP
-     - 10.1.10.21
-     - ``admin/admin``
-
-       ``root/default``
-   * - iWorkflow
-     - 10.1.10.20
+     - 10.1.1.245
      - ``admin/admin``
 
        ``root/default``
    * - Linux Server
-     - 10.1.10.10-13
-     - ``student/student``
+     - 10.1.1.252
+     - ``external_user/P@ssw0rd!``
 
        ``root/default``
    * - Windows Jumphost
-     - 10.1.10.50
-     - ``administrator/cXzTEv8E5``
+     - 10.1.1.199
+     - ``external_user/P@ssw0rd!``
 
 .. nwdiag:: labtopology.diag
    :width: 800

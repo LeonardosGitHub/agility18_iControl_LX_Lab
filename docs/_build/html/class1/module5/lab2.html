@@ -175,12 +175,11 @@ collection or use newman.</p>
 <p>To see what the extension is doing:</p>
 <ul class="simple">
 <li>You can monitor its logs in <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code>: Open a
-Putty session on iWorkflow and let the following command run:
+Putty session on BIG-IP and let the following command run:
 <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/var/log/restnoded/restnoded.log</span></code>. This way you should see all
 action logged by the extension.</li>
-<li>Connect to your BIG-IP UI (login <code class="docutils literal notranslate"><span class="pre">admin</span></code>, password <code class="docutils literal notranslate"><span class="pre">admin</span></code>) and
-iWorkflow UI (login <code class="docutils literal notranslate"><span class="pre">student</span></code>, password <code class="docutils literal notranslate"><span class="pre">student</span></code>) to see services being
-added/deleted. You have shortcuts in your Chrome browser</li>
+<li>Connect to your BIG-IP UI (login <code class="docutils literal notranslate"><span class="pre">admin</span></code>, password <code class="docutils literal notranslate"><span class="pre">admin</span></code>)
+to see services being added/deleted. You have shortcuts in your Chrome browser</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -213,15 +212,14 @@ called <code class="docutils literal notranslate"><span class="pre">My-App-Inter
 the order they are set in the folder. Make sure to review the response payload</p>
 <p>For example to deploy a HTTP Service, in the folder <code class="docutils literal notranslate"><span class="pre">Create-Service-HTTP</span></code>:</p>
 <ol class="arabic simple">
-<li>Click <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">a</span> <span class="pre">token</span> <span class="pre">from</span> <span class="pre">iWorkflow</span></code> and click <span class="guilabel">Send</span></li>
+<li>Click <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">a</span> <span class="pre">token</span> <span class="pre">from</span> <span class="pre">BIG-IP</span></code> and click <span class="guilabel">Send</span></li>
 <li>Click <code class="docutils literal notranslate"><span class="pre">Increase</span> <span class="pre">Auth</span> <span class="pre">token</span> <span class="pre">timeout</span></code> and click <span class="guilabel">Send</span></li>
 <li>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">HTTP</span> <span class="pre">Service</span></code> and click <span class="guilabel">Send</span></li>
 <li>Click <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">HTTP</span> <span class="pre">Service</span></code> and click <span class="guilabel">Send</span></li>
 </ol>
 </li>
 </ol>
-<p>You can review that everything happened as expected through the iWorkflow and
-BIG-IP UI also.</p>
+<p>You can review that everything happened as expected through the BIG-IP UI.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Your service definition is done in your <code class="docutils literal notranslate"><span class="pre">My-App-Interface</span></code>
@@ -239,7 +237,7 @@ folder in POSTMAN):</p>
 <li><p class="first">Here is the response from the POST Request:</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image005.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image005.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image005.png" /></a>
 </li>
-<li><p class="first">Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on iWorkflow:</p>
+<li><p class="first">Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on BIG-IP:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span><span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">retrieved</span> <span class="n">IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.100</span>
 <span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceretrieve</span> <span class="n">connector</span> <span class="n">ID</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">connector</span> <span class="n">name</span> <span class="ow">is</span> <span class="p">:</span> <span class="n">BIG</span><span class="o">-</span><span class="n">IP</span><span class="o">-</span><span class="n">student</span>
 <span class="n">Mon</span><span class="p">,</span> <span class="mi">13</span> <span class="n">Nov</span> <span class="mi">2017</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">40</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">connector</span> <span class="n">ID</span> <span class="ow">is</span> <span class="p">:</span> <span class="mi">58</span><span class="n">df07a5</span><span class="o">-</span><span class="n">f51c</span><span class="o">-</span><span class="mi">45</span><span class="n">ac</span><span class="o">-</span><span class="n">a35b</span><span class="o">-</span><span class="mi">406</span><span class="n">cfb35840c</span>
@@ -248,7 +246,7 @@ folder in POSTMAN):</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Logging as <code class="docutils literal notranslate"><span class="pre">student</span></code> on the iWorkflow UI:</p>
+<li><p class="first">Logging as <code class="docutils literal notranslate"><span class="pre">student</span></code> on the BIG-IP UI:</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image006.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image006.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image006.png" /></a>
 </li>
 <li><p class="first">Check our BIG-IP configuration via the UI:</p>
@@ -294,7 +292,7 @@ edit it with <code class="docutils literal notranslate"><span class="pre">Notepa
 output</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image010.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image010.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image010.png" /></a>
 </li>
-<li><p class="first">Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on iWorkflow:</p>
+<li><p class="first">Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on BIG-IP:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceIPAM</span> <span class="n">REST</span> <span class="n">Call</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">5</span> <span class="n">closed</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">32</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interfaceIPAM</span> <span class="n">REST</span> <span class="n">Call</span> <span class="o">-</span> <span class="n">onPost</span> <span class="o">-</span> <span class="n">the</span> <span class="n">retrieved</span> <span class="n">IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
@@ -303,7 +301,7 @@ output</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">You can check the service got deployed properly on iWorkflow (student tenant) and on your BIG-IP</p>
+<li><p class="first">You can check the service got deployed properly on BIG-IP (student tenant) and on your BIG-IP</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image011.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image011.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image011.png" /></a>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image012.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image012.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image012.png" /></a>
 </li>
@@ -319,7 +317,7 @@ Postman):</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image008.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image008.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image008.png" /></a>
 <p>Here is the response when we delete the service:</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image009.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image009.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image009.png" /></a>
-<p>Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on iWorkflow:</p>
+<p>Output from <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> on BIG-IP:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">4</span> <span class="n">opened</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span><span class="p">()</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">38</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">4</span> <span class="n">closed</span>
@@ -327,20 +325,20 @@ Postman):</p>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">12</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">39</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">Service</span> <span class="n">Deleted</span><span class="p">,</span> <span class="n">release</span> <span class="n">IP</span> <span class="kn">from</span> <span class="nn">IPAM</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
 </pre></div>
 </div>
-<p>Check that your service disappeared from iWorkflow and BIG-IP</p>
+<p>Check that your service disappeared from BIG-IP and BIG-IP</p>
 </div>
 <div class="section" id="use-newman-delete-http-service-example">
 <h3>Use newman - Delete HTTP Service Example<a class="headerlink" href="#use-newman-delete-http-service-example" title="Permalink to this headline">¶</a></h3>
 <p>We will launch the script called <code class="docutils literal notranslate"><span class="pre">4_Delete_HTTP_Service</span></code> and review the output</p>
 <a class="reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab2-image013.png"><img alt="class1/module5/../../_static/class1/module5/lab2-image013.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab2-image013.png" /></a>
-<p>Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on iWorkflow:</p>
+<p>Here is the <code class="docutils literal notranslate"><span class="pre">/var/log/restnoded/restnoded.log</span></code> output on BIG-IP:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span><span class="p">()</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">finest</span><span class="p">:</span> <span class="n">socket</span> <span class="mi">6</span> <span class="n">closed</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">54</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">VS_IP</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
 <span class="n">Sun</span><span class="p">,</span> <span class="mi">29</span> <span class="n">Oct</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">54</span> <span class="n">GMT</span> <span class="o">-</span> <span class="n">info</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span> <span class="o">-</span> <span class="n">onDelete</span> <span class="p">:</span> <span class="n">Service</span> <span class="n">Deleted</span><span class="p">,</span> <span class="n">release</span> <span class="n">IP</span> <span class="kn">from</span> <span class="nn">IPAM</span><span class="p">:</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">20.104</span>
 </pre></div>
 </div>
-<p>You can check the service got deleted properly on iWorkflow (student tenant)
+<p>You can check the service got deleted properly on BIG-IP (student tenant)
 and on your BIG-IP</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>

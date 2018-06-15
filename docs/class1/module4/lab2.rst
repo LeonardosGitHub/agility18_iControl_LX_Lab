@@ -223,7 +223,7 @@ Perform the following steps to complete this task:
 
 #. Make sure you save your updated file.
 
-#. Time to test our code!  Open another ssh session to your iWorkflow
+#. Time to test our code!  Open another ssh session to your BIG-IP
    platform and run the following command:
 
    ``bigstart restart restnoded ; tail -f /var/log/restnoded/restnoded.log``
@@ -248,7 +248,7 @@ Perform the following steps to complete this task:
 
 #. You can now test your updated extension with the following commands:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
    The console output should look like this:
 
@@ -260,7 +260,7 @@ Perform the following steps to complete this task:
 
 #. Run this command:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this:
 
@@ -277,7 +277,7 @@ Perform the following steps to complete this task:
 
 #. Run this command:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this (the name parameter wasn't found in
    the POST payload):
@@ -406,7 +406,7 @@ Perform the following tasks to complete this task:
 
 #. You can now test your updated extension with the following command:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this:
 
@@ -418,7 +418,7 @@ Perform the following tasks to complete this task:
 
 #. Run this command:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"name":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this:
 
@@ -435,7 +435,7 @@ Perform the following tasks to complete this task:
 
 #. Run this command:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"other":"iControl LX Lab"}' https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
 #. The console output should look like this (the name parameter wasn't found in
    the ``POST`` payload):

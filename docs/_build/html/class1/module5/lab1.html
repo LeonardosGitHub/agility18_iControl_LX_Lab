@@ -170,8 +170,8 @@
 <div class="section" id="task-1-install-the-icontrol-lx-rpm-package">
 <h2>Task 1 - Install the iControl LX RPM Package<a class="headerlink" href="#task-1-install-the-icontrol-lx-rpm-package" title="Permalink to this headline">¶</a></h2>
 <p>To save some time, we already have pushed the iControl LX RPM on your
-iWorkflow platform.</p>
-<p>You can connect to your iWorkflow platform (<code class="docutils literal notranslate"><span class="pre">10.1.10.20</span></code>) and check the
+BIG-IP platform.</p>
+<p>You can connect to your BIG-IP platform (<code class="docutils literal notranslate"><span class="pre">10.1.1.245</span></code>) and check the
 directory <code class="docutils literal notranslate"><span class="pre">/var/config/rest/downloads</span></code>:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ls /var/config/rest/downloads/</span>
 <span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">interface</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mf">002.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>  <span class="n">tmp</span>
@@ -213,7 +213,7 @@ this requests a few times before it’s fully installed)</li>
 </li>
 <li><p class="first">Here is the procedure:</p>
 <ul class="simple">
-<li>Select the call: <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">a</span> <span class="pre">Token</span> <span class="pre">from</span> <span class="pre">iWorkflow</span></code> and click on
+<li>Select the call: <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">a</span> <span class="pre">Token</span> <span class="pre">from</span> <span class="pre">BIG-IP</span></code> and click on
 <span class="guilabel">Send</span>, you may review the response to ensure it was successful</li>
 <li>Select the call: <code class="docutils literal notranslate"><span class="pre">Increase</span> <span class="pre">Auth</span> <span class="pre">Token</span> <span class="pre">Timeout</span></code> and click on
 <span class="guilabel">Send</span>, you may review the response</li>
@@ -315,7 +315,7 @@ you should see this:</p>
 </div>
 </li>
 <li><p class="first">Use Postman to test your extension. Try to access
-<code class="docutils literal notranslate"><span class="pre">https://10.1.10.20/mgmt/shared/my-app-interface/example</span></code>. You’ll need to
+<code class="docutils literal notranslate"><span class="pre">https://10.1.1.245/mgmt/shared/my-app-interface/example</span></code>. You’ll need to
 authenticate yourself as <code class="docutils literal notranslate"><span class="pre">student/student</span></code>. You have already a folder in
 your imported postman collection to do it.  It’s in the <code class="docutils literal notranslate"><span class="pre">My-App-Interface</span></code>
 collection and in the <code class="docutils literal notranslate"><span class="pre">Test-Interface</span></code> folder.</p>
@@ -331,9 +331,9 @@ collection and in the <code class="docutils literal notranslate"><span class="pr
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>To protect who can use this extension, we updated iWorkflow to only
+<p>To protect who can use this extension, we updated BIG-IP to only
 allow the <code class="docutils literal notranslate"><span class="pre">student</span></code> user to use this extension. This is done here in the
-iWorkflow interface:</p>
+BIG-IP interface:</p>
 <a class="last reference internal image-reference" href="class1/module5/../../_static/class1/module5/lab1-image008.png"><img alt="class1/module5/../../_static/class1/module5/lab1-image008.png" class="align-center" src="class1/module5/../../_static/class1/module5/lab1-image008.png" /></a>
 </div>
 </div>

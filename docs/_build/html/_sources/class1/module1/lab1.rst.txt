@@ -9,8 +9,7 @@ When developing iControl LX extensions, there are two daemons to be aware of:
 - ``restjavad``
 - ``restnoded``
 
-``restjavad`` presents the F5 iControl REST API, the interface to BIG-IP devices
-and the iWorkflow platform.
+``restjavad`` presents the F5 iControl REST API, the interface to BIG-IP platform.
 
 ``restnoded`` presents services for developing iControl LX extensions, in
 addition to acting as the interface to ``restjavad`` and the iControl REST API.
@@ -20,7 +19,7 @@ addition to acting as the interface to ``restjavad`` and the iControl REST API.
    :scale: 50%
 
 .. NOTE:: In the diagram above, the orange line represents an iControl REST
-   resource that ships with the BIG-IP/iWorkflow platform. The green line
+   resource that ships with the BIG-IP platform. The green line
    represents a REST call to a custom iControl LX extension.
 
 
@@ -29,7 +28,7 @@ Task 1 - Start/Stop/Restart the Daemons
 
 Perform the following steps to complete this task:
 
-#. Connect via ssh to your iWorkflow platform (a shortcut already exists in
+#. Connect via ssh to your BIG-IP platform (a shortcut already exists in
    PuTTY - ``10.1.10.20``, ``root/default``). Execute the following:
 
    ``bigstart status restnoded``

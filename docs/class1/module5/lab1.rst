@@ -5,9 +5,9 @@ Task 1 - Install the iControl LX RPM Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To save some time, we already have pushed the iControl LX RPM on your
-iWorkflow platform.
+BIG-IP platform.
 
-You can connect to your iWorkflow platform (``10.1.10.20``) and check the
+You can connect to your BIG-IP platform (``10.1.1.245``) and check the
 directory ``/var/config/rest/downloads``:
 
 .. code::
@@ -65,7 +65,7 @@ Perform the following steps to complete this task:
 
 #. Here is the procedure:
 
-   * Select the call: ``Request a Token from iWorkflow`` and click on
+   * Select the call: ``Request a Token from BIG-IP`` and click on
      :guilabel:`Send`, you may review the response to ensure it was successful
 
    * Select the call: ``Increase Auth Token Timeout`` and click on
@@ -182,7 +182,7 @@ You can check that the extension was successfully installed in different ways:
      Sun, 29 Oct 2017 09:53:14 GMT - config: [RestWorker] /shared/my-app-interface has started. Name:ipam_extension
 
 * Use Postman to test your extension. Try to access
-  ``https://10.1.10.20/mgmt/shared/my-app-interface/example``. You'll need to
+  ``https://10.1.1.245/mgmt/shared/my-app-interface/example``. You'll need to
   authenticate yourself as ``student/student``. You have already a folder in
   your imported postman collection to do it.  It's in the ``My-App-Interface``
   collection and in the ``Test-Interface`` folder.
@@ -204,9 +204,9 @@ You can check that the extension was successfully installed in different ways:
     :scale: 50%
 
 
-.. NOTE:: To protect who can use this extension, we updated iWorkflow to only
+.. NOTE:: To protect who can use this extension, we updated BIG-IP to only
    allow the ``student`` user to use this extension. This is done here in the
-   iWorkflow interface:
+   BIG-IP interface:
 
    .. image:: ../../_static/class1/module5/lab1-image008.png
       :align: center

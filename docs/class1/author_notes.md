@@ -42,7 +42,7 @@ Module 3 - Understanding the iControl LX extensions
 
 Module 4 - Installing the Hello_World extension
   Lab 4.1 - Creating the Hello-World iControl LX extension
-    Task 1 - Create our iControl LX extension onto iWorkflow
+    Task 1 - Create our iControl LX extension onto BIG-IP
     Task 2 - Check our iControl LX extension is working
   Lab 4.2 - Update our iControl LX extension
     Task 1 - Update our iControl LX extension - handle Post requests

@@ -13,13 +13,12 @@ collection or use newman.
 To see what the extension is doing:
 
 * You can monitor its logs in ``/var/log/restnoded/restnoded.log``: Open a
-  Putty session on iWorkflow and let the following command run:
+  Putty session on BIG-IP and let the following command run:
   ``tail -f /var/log/restnoded/restnoded.log``. This way you should see all
   action logged by the extension.
 
-* Connect to your BIG-IP UI (login ``admin``, password ``admin``) and
-  iWorkflow UI (login ``student``, password ``student``) to see services being
-  added/deleted. You have shortcuts in your Chrome browser
+* Connect to your BIG-IP UI (login ``admin``, password ``admin``) 
+  to see services being added/deleted. You have shortcuts in your Chrome browser
 
 .. NOTE:: Some limitations of the extension / IPAM solution to be aware of:
 
@@ -60,13 +59,12 @@ Perform the following steps to complete this task:
 
    For example to deploy a HTTP Service, in the folder ``Create-Service-HTTP``:
 
-   1. Click ``Request a token from iWorkflow`` and click :guilabel:`Send`
+   1. Click ``Request a token from BIG-IP`` and click :guilabel:`Send`
    2. Click ``Increase Auth token timeout`` and click :guilabel:`Send`
    3. Click ``Create HTTP Service`` and click :guilabel:`Send`
    4. Click ``Get HTTP Service`` and click :guilabel:`Send`
 
-You can review that everything happened as expected through the iWorkflow and
-BIG-IP UI also.
+You can review that everything happened as expected through the BIG-IP UI.
 
 .. NOTE:: Your service definition is done in your ``My-App-Interface``
    environment. So if you want to deploy multiple services, make sure you
@@ -90,7 +88,7 @@ Use Postman - Create HTTP Service Example
       :scale: 50%
 
 
-#. Output from ``/var/log/restnoded/restnoded.log`` on iWorkflow:
+#. Output from ``/var/log/restnoded/restnoded.log`` on BIG-IP:
 
    .. code::
 
@@ -101,7 +99,7 @@ Use Postman - Create HTTP Service Example
       Mon, 13 Nov 2017 14:51:40 GMT - info: DEBUG: my-app-interface - function RestPostRequest, Service created successfully
 
 
-#. Logging as ``student`` on the iWorkflow UI:
+#. Logging as ``student`` on the BIG-IP UI:
 
    .. image:: ../../_static/class1/module5/lab2-image006.png
       :align: center
@@ -167,7 +165,7 @@ Use Newman - Create HTTP Service Example
       :scale: 50%
 
 
-#. Here is the ``/var/log/restnoded/restnoded.log`` output on iWorkflow:
+#. Here is the ``/var/log/restnoded/restnoded.log`` output on BIG-IP:
 
    .. code::
 
@@ -178,7 +176,7 @@ Use Newman - Create HTTP Service Example
       Sun, 29 Oct 2017 12:50:32 GMT - info: DEBUG: my-app-interface - function RestPostRequest, Service created successfully
 
 
-#. You can check the service got deployed properly on iWorkflow (student tenant) and on your BIG-IP
+#. You can check the service got deployed properly on BIG-IP (student tenant) and on your BIG-IP
 
    .. image:: ../../_static/class1/module5/lab2-image011.png
       :align: center
@@ -208,7 +206,7 @@ Here is the response when we delete the service:
    :align: center
    :scale: 50%
 
-Output from ``/var/log/restnoded/restnoded.log`` on iWorkflow:
+Output from ``/var/log/restnoded/restnoded.log`` on BIG-IP:
 
 .. code::
 
@@ -218,7 +216,7 @@ Output from ``/var/log/restnoded/restnoded.log`` on iWorkflow:
    Sun, 29 Oct 2017 12:47:38 GMT - info: DEBUG: my-app-interface - onDelete : VS_IP is: 10.1.20.104
    Sun, 29 Oct 2017 12:47:39 GMT - info: DEBUG: my-app-interface - onDelete : Service Deleted, release IP from IPAM: 10.1.20.104
 
-Check that your service disappeared from iWorkflow and BIG-IP
+Check that your service disappeared from BIG-IP and BIG-IP
 
 Use newman - Delete HTTP Service Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -230,7 +228,7 @@ We will launch the script called ``4_Delete_HTTP_Service`` and review the output
    :scale: 50%
 
 
-Here is the ``/var/log/restnoded/restnoded.log`` output on iWorkflow:
+Here is the ``/var/log/restnoded/restnoded.log`` output on BIG-IP:
 
 .. code::
 
@@ -240,7 +238,7 @@ Here is the ``/var/log/restnoded/restnoded.log`` output on iWorkflow:
    Sun, 29 Oct 2017 13:00:54 GMT - info: DEBUG: my-app-interface - onDelete : Service Deleted, release IP from IPAM: 10.1.20.104
 
 
-You can check the service got deleted properly on iWorkflow (student tenant)
+You can check the service got deleted properly on BIG-IP (student tenant)
 and on your BIG-IP
 
 .. NOTE:: In the postman collection we also have an example on how to update

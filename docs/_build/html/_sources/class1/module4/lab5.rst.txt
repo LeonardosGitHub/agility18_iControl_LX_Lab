@@ -78,10 +78,10 @@ Perform the following steps to complete this task:
         "selfLink": "https://localhost/mgmt/shared/iapp/package-management-tasks/075149e9-3448-4ce1-88db-c6d877eff772"
       }
 
-#. If you have a iWorkflow terminal, check it, you should see something like
+#. If you have a BIG-IP terminal, check it, you should see something like
    this:
 
-   ``Oct 18 15:18:37 iworkflow emerg logger: Re-starting restnoded``
+   ``Oct 18 15:18:37 bigip emerg logger: Re-starting restnoded``
 
 Task 3 - [OPTIONAL] Verify the iControl LX Extension was Deleted
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,6 +125,6 @@ Perform the following steps to complete this task:
         }
       }
 
-#. If you connect to the iWorkflow platform, you should see that the folder
+#. If you connect to the BIG-IP platform, you should see that the folder
    ``HelloWorld`` has been automatically removed from
    ``/var/config/rest/iapps``.

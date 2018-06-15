@@ -172,8 +172,8 @@
   <div class="section" id="lab-4-3-create-a-new-icontrol-lx-extension-rpm">
 <h1>Lab 4.3 - Create a New iControl LX Extension RPM<a class="headerlink" href="#lab-4-3-create-a-new-icontrol-lx-extension-rpm" title="Permalink to this headline">¶</a></h1>
 <p>Here, our curl commands will return a fair amount of output. To make it more
-readable, we will need <code class="docutils literal notranslate"><span class="pre">jq</span></code>.  <code class="docutils literal notranslate"><span class="pre">jq</span></code> is not available on BIG-IP or iWorkflow.</p>
-<p>To run the next curl commands, do it from the Linux server(<code class="docutils literal notranslate"><span class="pre">10.1.10.10</span></code>). It’s already
+readable, we will need <code class="docutils literal notranslate"><span class="pre">jq</span></code>.  <code class="docutils literal notranslate"><span class="pre">jq</span></code> is not available on BIG-IP.</p>
+<p>To run the next curl commands, do it from the Linux server(<code class="docutils literal notranslate"><span class="pre">10.1.1.252</span></code>). It’s already
 defined in PUTTY. Login: <code class="docutils literal notranslate"><span class="pre">student</span></code>, Password: <code class="docutils literal notranslate"><span class="pre">student</span></code></p>
 <div class="section" id="task-1-create-a-new-rpm-for-the-updated-icontrol-lx-extension">
 <h2>Task 1 - Create a new RPM for the Updated iControl LX Extension<a class="headerlink" href="#task-1-create-a-new-rpm-for-the-updated-icontrol-lx-extension" title="Permalink to this headline">¶</a></h2>
@@ -192,7 +192,7 @@ your extension. In our lab, the folder’s name is <code class="docutils literal
 <p>Perform the following steps to complete this task:</p>
 <ol class="arabic">
 <li><p class="first">Execute the following command to start package creation:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;appName&quot;:</span> <span class="pre">&quot;HelloWorld&quot;,</span> <span class="pre">&quot;packageVersion&quot;:</span> <span class="pre">&quot;0.1&quot;,</span> <span class="pre">&quot;packageRelease&quot;:</span> <span class="pre">&quot;001&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/build-package</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;appName&quot;:</span> <span class="pre">&quot;HelloWorld&quot;,</span> <span class="pre">&quot;packageVersion&quot;:</span> <span class="pre">&quot;0.1&quot;,</span> <span class="pre">&quot;packageRelease&quot;:</span> <span class="pre">&quot;001&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/build-package</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">jq</span></code> will format the response in something more readable</p>
@@ -227,7 +227,7 @@ your extension. In our lab, the folder’s name is <code class="docutils literal
 </li>
 <li><p class="first">To view the status of the package creation, take the <code class="docutils literal notranslate"><span class="pre">id</span></code> and append that
 to the end of the build-package URI like so (this is a GET request):</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/build-package/3ae60863-9d92-40a0-a69a-1acc337100b9</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/build-package/3ae60863-9d92-40a0-a69a-1acc337100b9</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 </li>
 <li><p class="first">You will receive the following when it is successfully created:
 (“status”: “FINISHED”):</p>
@@ -284,7 +284,7 @@ in restnoded). Since we started the iControl extension from scratch, we will
 need to remove it also manually.</p>
 <p>Perform the following steps to complete this task:</p>
 <ol class="arabic">
-<li><p class="first">On iWorkflow, run the following command:</p>
+<li><p class="first">On BIG-IP, run the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">restcurl</span> <span class="pre">shared/nodejs/loader-path-config</span></code></p>
 </li>
 <li><p class="first">You should have an output like this:</p>
@@ -325,7 +325,7 @@ your own extension id.</p>
   <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;shared:nodejs:loader-path-config:loaderpathstate&quot;</span><span class="p">,</span>
   <span class="s2">&quot;selfLink&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/mgmt/shared/nodejs/loader-path-config/ad130c79-59a0-49c7-a7e7-ff39efe956b5&quot;</span>
 <span class="p">}</span>
-<span class="n">Oct</span> <span class="mi">18</span> <span class="mi">14</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">06</span> <span class="n">iworkflow</span> <span class="n">emerg</span> <span class="n">logger</span><span class="p">:</span> <span class="n">Re</span><span class="o">-</span><span class="n">starting</span> <span class="n">restnoded</span>
+<span class="n">Oct</span> <span class="mi">18</span> <span class="mi">14</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">06</span> <span class="n">bigip</span> <span class="n">emerg</span> <span class="n">logger</span><span class="p">:</span> <span class="n">Re</span><span class="o">-</span><span class="n">starting</span> <span class="n">restnoded</span>
 </pre></div>
 </div>
 </li>
@@ -333,7 +333,7 @@ your own extension id.</p>
 </li>
 <li><p class="first">You can validate that your extension has been removed from <code class="docutils literal notranslate"><span class="pre">restnoded</span></code> by
 trying to access it again (run this command from the Linux Server):</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 </li>
 <li><p class="first">Here your request should fail and the output should be similar to this:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -351,7 +351,7 @@ trying to access it again (run this command from the Linux Server):</p>
 </div>
 </li>
 <li><p class="first">You can now delete your working directory to complete erase this extension
-from your iWorkflow platform. from the iWF CLI, run this command:</p>
+from your BIG-IP platform. from the BIG-IP CLI, run this command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/var/config/rest/iapps/HelloWorld</span></code></p>
 </li>
 </ol>

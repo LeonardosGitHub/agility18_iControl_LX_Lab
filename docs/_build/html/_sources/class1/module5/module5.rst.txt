@@ -64,7 +64,7 @@ expect the ADC solution to be able to retrieve this information on its own.
 In this lab, we will deploy an iControl LX extension that will communicate with
 an IPAM solution to populate automatically this information.
 
-iWorkflow is already setup with 2 service templates:
+BIG-IP is already setup with 2 service templates:
 
 * HTTP service
 * TCP service
@@ -81,7 +81,7 @@ Our extension can do the following:
 * Receive GET/PUT/POST/DELETE requests
 * Retrieve an IP from our IPAM solution (we use an iRule to simulate this. It's
   on the BIG-IP)
-* Translate the received payload with the information needed by iWorkflow to
+* Translate the received payload with the information needed by BIG-IP to
   trigger those templates
 
 

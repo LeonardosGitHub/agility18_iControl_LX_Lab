@@ -380,7 +380,7 @@ Hello and the name of the user</li>
 </li>
 <li><p class="first">Make sure you save your updated file.</p>
 </li>
-<li><p class="first">Time to test our code!  Open another ssh session to your iWorkflow
+<li><p class="first">Time to test our code!  Open another ssh session to your BIG-IP
 platform and run the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">bigstart</span> <span class="pre">restart</span> <span class="pre">restnoded</span> <span class="pre">;</span> <span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/var/log/restnoded/restnoded.log</span></code></p>
 </li>
@@ -402,7 +402,7 @@ use another one to update your code/send curl command</p>
 </div>
 </li>
 <li><p class="first">You can now test your updated extension with the following commands:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 <p>The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Hello</span> <span class="pre">World!&quot;}</span></code></p>
 </li>
@@ -410,7 +410,7 @@ use another one to update your code/send curl command</p>
 <p><code class="docutils literal notranslate"><span class="pre">Tue,</span> <span class="pre">17</span> <span class="pre">Oct</span> <span class="pre">2017</span> <span class="pre">13:33:45</span> <span class="pre">GMT</span> <span class="pre">-</span> <span class="pre">info:</span> <span class="pre">DEBUG:</span> <span class="pre">HelloWorld</span> <span class="pre">-</span> <span class="pre">onGet</span> <span class="pre">request</span></code></p>
 </li>
 <li><p class="first">Run this command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Hello</span> <span class="pre">iControl</span> <span class="pre">LX</span> <span class="pre">Lab!&quot;}</span></code></p>
@@ -424,7 +424,7 @@ use another one to update your code/send curl command</p>
 </div>
 </li>
 <li><p class="first">Run this command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this (the name parameter wasn’t found in
 the POST payload):</p>
@@ -542,7 +542,7 @@ your updated file.</p>
 </div>
 </li>
 <li><p class="first">You can now test your updated extension with the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Congratulations</span> <span class="pre">on</span> <span class="pre">your</span> <span class="pre">lab!&quot;}</span></code></p>
@@ -551,7 +551,7 @@ your updated file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Tue,</span> <span class="pre">17</span> <span class="pre">Oct</span> <span class="pre">2017</span> <span class="pre">13:33:45</span> <span class="pre">GMT</span> <span class="pre">-</span> <span class="pre">info:</span> <span class="pre">DEBUG:</span> <span class="pre">HelloWorld</span> <span class="pre">-</span> <span class="pre">onGet</span> <span class="pre">request</span></code></p>
 </li>
 <li><p class="first">Run this command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Hello</span> <span class="pre">iControl</span> <span class="pre">LX</span> <span class="pre">Lab!&quot;}</span></code></p>
@@ -565,7 +565,7 @@ your updated file.</p>
 </div>
 </li>
 <li><p class="first">Run this command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this (the name parameter wasn’t found in
 the <code class="docutils literal notranslate"><span class="pre">POST</span></code> payload):</p>

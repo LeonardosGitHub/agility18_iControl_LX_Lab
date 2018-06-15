@@ -12,7 +12,7 @@ Perform the following steps to complete this task:
 
 #. From the results, select ``authz/users``
 
-#. You are now viewing all of the user accounts on your iWorkflow platform.
+#. You are now viewing all of the user accounts on your BIG-IP platform.
 
    .. image:: ../../_static/class1/module2/lab2-image001.png
       :align: center
@@ -57,7 +57,7 @@ Task 3 - Modify the New User
 Task 4 - Login as the New User
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open a new browser window/tab and navigate to ``https://10.1.10.20/``
+#. Open a new browser window/tab and navigate to ``https://10.1.1.245/``
 
 #. Login as the new user (``user42/user42``)
 

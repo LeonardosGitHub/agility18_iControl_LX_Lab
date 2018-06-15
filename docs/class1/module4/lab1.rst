@@ -6,15 +6,15 @@ system) when you want to leverage something existing. However when you start
 from scratch, you'll need to create your extension and then build a RPM that
 you can distribute accordingly.
 
-Task 1 - Create our iControl LX Extension on iWorkflow
+Task 1 - Create our iControl LX Extension on BIG-IP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 iControl LX extensions can be installed on either the BIG-IP or iWorkflow
-platform. For this lab, we will use iWorkflow.
+platform. For this lab, we will use BIG-IP.
 
 Perform the following steps to complete this task:
 
-#. Connect to your iWorkflow platform  via ssh/Putty(``10.1.10.20``)
+#. Connect to your BIG-IP platform  via ssh/Putty(``10.1.10.20``)
 
 
 #. iControl LX extensions reside in ``/var/config/rest/iapps/``. This is where
@@ -28,7 +28,7 @@ Perform the following steps to complete this task:
    * inside the app folder, another folder called ``nodejs`` that will contain
      your extension
 
-#. Let's create our directory tree. On your iWorkflow platform, execute:
+#. Let's create our directory tree. On your BIG-IP platform, execute:
 
    ``mkdir -p /var/config/rest/iapps/HelloWorld/nodejs/``
 
@@ -77,7 +77,7 @@ Perform the following steps to complete this task:
    an extension is loaded from a RPM, it is done automatically. However here,
    we will need to do it ourselves
 
-   Use the following command on iWorkflow to make ``restnoded`` aware of our
+   Use the following command on BIG-IP to make ``restnoded`` aware of our
    extension:
 
    ``restcurl shared/nodejs/loader-path-config -d '{"workerPath": "/var/config/rest/iapps/HelloWorld"}'``
@@ -126,7 +126,7 @@ Perform the following steps to complete this task:
       :align: center
       :scale: 50%
 
-#. You could also use ``curl`` in CLI (from iWorkflow CLI for example):
+#. You could also use ``curl`` in CLI (from BIG-IP CLI for example):
 
    ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world``
 
@@ -149,9 +149,5 @@ Perform the following steps to complete this task:
    In many situation the extension may be needed only by a specific user and
    then you should be able to enforce some RBAC policies here. BIG-IP 13.1 will
    provide this capability (`BIG-IP RBAC API`_).
-   With iWorkflow, you can already setup RBAC for the API. For a specific user,
-   you can specify which
-   URIs they have access to and also which HTTP Methods he can use against those
-   URIs.
 
 .. _BIG-IP RBAC API: https://hive.f5.com/docs/DOC-45844

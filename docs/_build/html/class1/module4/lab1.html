@@ -87,7 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">Module 3 - Understanding iControl LX Extensions</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="module4.html">Module 4 - Installing the HelloWorld extension</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 4.1 - Creating the HelloWorld iControl LX Extension</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#task-1-create-our-icontrol-lx-extension-on-iworkflow">Task 1 - Create our iControl LX Extension on iWorkflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-create-our-icontrol-lx-extension-on-big-ip">Task 1 - Create our iControl LX Extension on BIG-IP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#task-2-check-our-icontrol-lx-extension-is-working">Task 2 - Check our iControl LX Extension is Working</a></li>
 </ul>
 </li>
@@ -174,13 +174,13 @@
 system) when you want to leverage something existing. However when you start
 from scratch, you’ll need to create your extension and then build a RPM that
 you can distribute accordingly.</p>
-<div class="section" id="task-1-create-our-icontrol-lx-extension-on-iworkflow">
-<h2>Task 1 - Create our iControl LX Extension on iWorkflow<a class="headerlink" href="#task-1-create-our-icontrol-lx-extension-on-iworkflow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-1-create-our-icontrol-lx-extension-on-big-ip">
+<h2>Task 1 - Create our iControl LX Extension on BIG-IP<a class="headerlink" href="#task-1-create-our-icontrol-lx-extension-on-big-ip" title="Permalink to this headline">¶</a></h2>
 <p>iControl LX extensions can be installed on either the BIG-IP or iWorkflow
-platform. For this lab, we will use iWorkflow.</p>
+platform. For this lab, we will use BIG-IP.</p>
 <p>Perform the following steps to complete this task:</p>
 <ol class="arabic">
-<li><p class="first">Connect to your iWorkflow platform  via ssh/Putty(<code class="docutils literal notranslate"><span class="pre">10.1.10.20</span></code>)</p>
+<li><p class="first">Connect to your BIG-IP platform  via ssh/Putty(<code class="docutils literal notranslate"><span class="pre">10.1.10.20</span></code>)</p>
 </li>
 <li><p class="first">iControl LX extensions reside in <code class="docutils literal notranslate"><span class="pre">/var/config/rest/iapps/</span></code>. This is where
 you need to create your iControl LX extension. Usually you will create:</p>
@@ -197,7 +197,7 @@ the RPM name when we will create our package later.</p>
 your extension</li>
 </ul>
 </li>
-<li><p class="first">Let’s create our directory tree. On your iWorkflow platform, execute:</p>
+<li><p class="first">Let’s create our directory tree. On your BIG-IP platform, execute:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/config/rest/iapps/HelloWorld/nodejs/</span></code></p>
 </li>
 <li><p class="first">Now that we have our directory, we need to create our extension. Use your
@@ -244,7 +244,7 @@ preferred editor and create a file named <code class="docutils literal notransla
 <li><p class="first">Once our extension is created, we need to load it into <code class="docutils literal notranslate"><span class="pre">restnoded</span></code>. When
 an extension is loaded from a RPM, it is done automatically. However here,
 we will need to do it ourselves</p>
-<p>Use the following command on iWorkflow to make <code class="docutils literal notranslate"><span class="pre">restnoded</span></code> aware of our
+<p>Use the following command on BIG-IP to make <code class="docutils literal notranslate"><span class="pre">restnoded</span></code> aware of our
 extension:</p>
 <p><code class="docutils literal notranslate"><span class="pre">restcurl</span> <span class="pre">shared/nodejs/loader-path-config</span> <span class="pre">-d</span> <span class="pre">'{&quot;workerPath&quot;:</span> <span class="pre">&quot;/var/config/rest/iapps/HelloWorld&quot;}'</span></code></p>
 <div class="admonition note">
@@ -287,7 +287,7 @@ ensure everything went smoothly:</p>
 <li><p class="first">You should see something like this:</p>
 <a class="reference internal image-reference" href="class1/module4/../../_static/class1/module4/lab1-image001.png"><img alt="class1/module4/../../_static/class1/module4/lab1-image001.png" class="align-center" src="class1/module4/../../_static/class1/module4/lab1-image001.png" /></a>
 </li>
-<li><p class="first">You could also use <code class="docutils literal notranslate"><span class="pre">curl</span></code> in CLI (from iWorkflow CLI for example):</p>
+<li><p class="first">You could also use <code class="docutils literal notranslate"><span class="pre">curl</span></code> in CLI (from BIG-IP CLI for example):</p>
 <p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
 <p>Or a REST client like POSTMAN.</p>
 </li>
@@ -306,11 +306,7 @@ browser to <code class="docutils literal notranslate"><span class="pre">https://
 <p class="last">You may NOT want to use admin priviledges to leverage an extension.
 In many situation the extension may be needed only by a specific user and
 then you should be able to enforce some RBAC policies here. BIG-IP 13.1 will
-provide this capability (<a class="reference external" href="https://hive.f5.com/docs/DOC-45844">BIG-IP RBAC API</a>).
-With iWorkflow, you can already setup RBAC for the API. For a specific user,
-you can specify which
-URIs they have access to and also which HTTP Methods he can use against those
-URIs.</p>
+provide this capability (<a class="reference external" href="https://hive.f5.com/docs/DOC-45844">BIG-IP RBAC API</a>).</p>
 </div>
 </div>
 </div>

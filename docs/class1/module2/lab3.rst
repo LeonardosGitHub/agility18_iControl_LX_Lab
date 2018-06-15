@@ -8,7 +8,7 @@ Perform the following steps to complete this task:
 
 #. Navigate to your list of user accounts:
 
-   ``https://10.1.10.20/mgmt/shared/authz/users/presentation#/``
+   ``https://10.1.1.245/mgmt/shared/authz/users/presentation#/``
 
 #. Click on the user you created earlier (``user42``)
 

@@ -171,22 +171,22 @@
             
   <div class="section" id="lab-4-4-install-our-icontrol-lx-rpm">
 <h1>Lab 4.4 - Install our iControl LX RPM<a class="headerlink" href="#lab-4-4-install-our-icontrol-lx-rpm" title="Permalink to this headline">¶</a></h1>
-<p>Let’s try to install our iControl LX RPM on iWorkflow.</p>
+<p>Let’s try to install our iControl LX RPM on BIG-IP.</p>
 <p>To install the iControl LX extension, first you need to copy the iControl LX
-package onto your iWorkflow device in the right folder. It should be in the
+package onto your BIG-IP device in the right folder. It should be in the
 following directory: <code class="docutils literal notranslate"><span class="pre">/var/config/rest/downloads</span></code></p>
-<p>Use your iWorkflow ssh session and run the following command:</p>
+<p>Use your BIG-IP ssh session and run the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">/var/config/rest/iapps/RPMS/HelloWorld-0.1-001.noarch.rpm</span> <span class="pre">/var/config/rest/downloads/</span></code></p>
 <p>Here, we just had to move the RPM from a folder to another since already on the
-iWorkflow platform. You can ensure the transfer was successful by checking the
+BIG-IP platform. You can ensure the transfer was successful by checking the
 folder <code class="docutils literal notranslate"><span class="pre">/var/config/rest/downloads</span></code>.</p>
 <div class="section" id="task-1-review-the-installed-icontrol-lx-packages">
 <h2>Task 1 - Review the installed iControl LX Packages<a class="headerlink" href="#task-1-review-the-installed-icontrol-lx-packages" title="Permalink to this headline">¶</a></h2>
-<p>First lets take a look at the packages installed on your iWorkflow platform.</p>
+<p>First lets take a look at the packages installed on your BIG-IP platform.</p>
 <p>Perform the following steps to complete this task:</p>
 <ol class="arabic">
 <li><p class="first">From your <a href="#id1"><span class="problematic" id="id2">``</span></a>Linux Server`, run the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 <p>Response:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -219,7 +219,7 @@ iControlLX package is all it takes:</p>
 <p>Perform the following steps to complete this task:</p>
 <ol class="arabic">
 <li><p class="first">Let’s use your terminal to run the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;operation&quot;:</span> <span class="pre">&quot;INSTALL&quot;,&quot;packageFilePath&quot;:</span> <span class="pre">&quot;/var/config/rest/downloads/HelloWorld-0.1-001.noarch.rpm&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/package-management-tasks</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;operation&quot;:</span> <span class="pre">&quot;INSTALL&quot;,&quot;packageFilePath&quot;:</span> <span class="pre">&quot;/var/config/rest/downloads/HelloWorld-0.1-001.noarch.rpm&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/package-management-tasks</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 </li>
 <li><p class="first">The output should look like this:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -247,7 +247,7 @@ iControlLX package is all it takes:</p>
 <li><p class="first">Note the <code class="docutils literal notranslate"><span class="pre">id</span></code>. If you now query the <code class="docutils literal notranslate"><span class="pre">package-managment-tasks</span></code> resource
 and append the <code class="docutils literal notranslate"><span class="pre">id</span></code>, you can get the status of the install.</p>
 <p>From your terminal:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span>&#160; <span class="pre">https://10.1.10.20/mgmt/shared/iapp/package-management-tasks/4d62ae98-5302-41ee-8057-479b28372b9f</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span>&#160; <span class="pre">https://10.1.1.245/mgmt/shared/iapp/package-management-tasks/4d62ae98-5302-41ee-8057-479b28372b9f</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Replace the ID in the curl command
@@ -319,7 +319,7 @@ example:</p>
 <li><p class="first">reviewing the folder <code class="docutils literal notranslate"><span class="pre">/var/config/rest/iapps/</span></code></p>
 </li>
 <li><p class="first">check the output of the command (from your Linux Server)</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls /var/config/rest/iapps/
 HelloWorld  RPMS
 </pre></div>
@@ -328,7 +328,7 @@ HelloWorld  RPMS
 </ul>
 </li>
 <li><p class="first">We can see that the HelloWorld folder is back here.</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/shared/iapp/global-installed-packages</span> <span class="pre">|</span> <span class="pre">jq</span></code></p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -378,16 +378,16 @@ Wed, 18 Oct 2017 13:27:21 GMT - info: DEBUG: HelloWorld - onStart - the default 
 <h2>Task 3 - Test our iControl Extension<a class="headerlink" href="#task-3-test-our-icontrol-extension" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">You can simply redo some of our previous tests to see the outcome:</p>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Congratulations</span> <span class="pre">on</span> <span class="pre">your</span> <span class="pre">lab!&quot;}</span></code></p>
 </li>
-<li><p class="first">Execute <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<li><p class="first">Execute <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;name&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 <p>The console output should look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;value&quot;:&quot;Hello</span> <span class="pre">iControl</span> <span class="pre">LX</span> <span class="pre">Lab!&quot;}</span></code></p>
 </li>
-<li><p class="first">Execute <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.10.20/mgmt/ilxe_lab/hello_world</span></code></p>
+<li><p class="first">Execute <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-H</span> <span class="pre">&quot;Content-Type:</span> <span class="pre">application/json&quot;</span> <span class="pre">-k</span> <span class="pre">-u</span> <span class="pre">admin:admin</span> <span class="pre">-X</span> <span class="pre">POST</span> <span class="pre">-d</span> <span class="pre">'{&quot;other&quot;:&quot;iControl</span> <span class="pre">LX</span> <span class="pre">Lab&quot;}'</span> <span class="pre">https://10.1.1.245/mgmt/ilxe_lab/hello_world</span></code></p>
 </li>
 <li><p class="first">The console output should look like this (the name parameter wasn’t found in
 the POST payload):</p>

@@ -2,9 +2,9 @@ Lab 4.3 - Create a New iControl LX Extension RPM
 ------------------------------------------------
 
 Here, our curl commands will return a fair amount of output. To make it more
-readable, we will need ``jq``.  ``jq`` is not available on BIG-IP or iWorkflow.
+readable, we will need ``jq``.  ``jq`` is not available on BIG-IP.
 
-To run the next curl commands, do it from the Linux server(``10.1.10.10``). It's already
+To run the next curl commands, do it from the Linux server(``10.1.1.252``). It's already
 defined in PUTTY. Login: ``student``, Password: ``student``
 
 Task 1 - Create a new RPM for the Updated iControl LX Extension
@@ -29,7 +29,7 @@ Perform the following steps to complete this task:
 
 #. Execute the following command to start package creation:
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"appName": "HelloWorld", "packageVersion": "0.1", "packageRelease": "001"}' https://10.1.10.20/mgmt/shared/iapp/build-package | jq``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"appName": "HelloWorld", "packageVersion": "0.1", "packageRelease": "001"}' https://10.1.1.245/mgmt/shared/iapp/build-package | jq``
 
    .. NOTE:: The ``| jq`` will format the response in something more readable
 
@@ -64,7 +64,7 @@ Perform the following steps to complete this task:
 #. To view the status of the package creation, take the ``id`` and append that
    to the end of the build-package URI like so (this is a GET request):
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/build-package/3ae60863-9d92-40a0-a69a-1acc337100b9 | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/build-package/3ae60863-9d92-40a0-a69a-1acc337100b9 | jq``
 
 #. You will receive the following when it is successfully created:
    ("status": "FINISHED"):
@@ -126,7 +126,7 @@ need to remove it also manually.
 
 Perform the following steps to complete this task:
 
-#. On iWorkflow, run the following command:
+#. On BIG-IP, run the following command:
 
    ``restcurl shared/nodejs/loader-path-config``
 
@@ -172,14 +172,14 @@ Perform the following steps to complete this task:
         "kind": "shared:nodejs:loader-path-config:loaderpathstate",
         "selfLink": "https://localhost/mgmt/shared/nodejs/loader-path-config/ad130c79-59a0-49c7-a7e7-ff39efe956b5"
       }
-      Oct 18 14:33:06 iworkflow emerg logger: Re-starting restnoded
+      Oct 18 14:33:06 bigip emerg logger: Re-starting restnoded
 
 #. As you can see ``restnoded`` got restarted automatically to remove the extension.
 
 #. You can validate that your extension has been removed from ``restnoded`` by
    trying to access it again (run this command from the Linux Server):
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world | jq``
 
 #. Here your request should fail and the output should be similar to this:
 
@@ -198,6 +198,6 @@ Perform the following steps to complete this task:
       }
 
 #. You can now delete your working directory to complete erase this extension
-   from your iWorkflow platform. from the iWF CLI, run this command:
+   from your BIG-IP platform. from the BIG-IP CLI, run this command:
 
    ``rm -rf /var/config/rest/iapps/HelloWorld``
