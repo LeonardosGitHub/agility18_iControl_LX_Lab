@@ -1,0 +1,16 @@
+Welcome to the Agility 2018 iControl LX Extensions Lab Documentation!
+=============================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   :glob:
+
+   class*/class*
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

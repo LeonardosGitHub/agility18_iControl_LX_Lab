@@ -1,14 +1,14 @@
 Module 4 - Installing the HelloWorld extension
 ===============================================
 
-In module 4, we are going to create our first iControl LX extension, the
-``HelloWorld`` extension. It doesn't do much but it's simple and perfect for
+In Module 4, we are going to create our first iControl LX extension, the
+``HelloWorld`` extension. It is a simple example that is perfect for
 illustrating the package management system.
 
 .. NOTE::
 
-  In this lab, we will make you do edits on the platform itself.
-  You'll connect on BIG-IP and do everything on it. It's not necessarily
+  In this lab we will be performing edits on the BIG-IP directly.
+  This is not necessarily
   a best practice. You could also have a local version on your JumpHost and use
   ``Notepad++`` (already installed on your JumpHost, feel free to install
   something else) to do the work. Once your file is updated accordingly,

@@ -3,27 +3,26 @@ Lab 4.4 - Install our iControl LX RPM
 
 Let's try to install our iControl LX RPM on BIG-IP.
 
-To install the iControl LX extension, first you need to copy the iControl LX
-package onto your BIG-IP device in the right folder. It should be in the
-following directory: ``/var/config/rest/downloads``
+To install the iControl LX extension, you'll first need to copy the iControl LX
+package onto your BIG-IP device into the correct folder. It should be in the
+following directory: ``/var/config/rest/downloads``.
 
-Use your BIG-IP ssh session and run the following command:
+Use your BIG-IP SSH session and run the following command:
 
 ``mv /var/config/rest/iapps/RPMS/HelloWorld-0.1-001.noarch.rpm /var/config/rest/downloads/``
 
-Here, we just had to move the RPM from a folder to another since already on the
-BIG-IP platform. You can ensure the transfer was successful by checking the
+Since the RPM package was already on the BIG-IP we just had to move it to the correct folder. You can verify the transfer was successful by checking the
 folder ``/var/config/rest/downloads``.
 
 
 Task 1 - Review the installed iControl LX Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First lets take a look at the packages installed on your BIG-IP platform.
+First let's take a look at the packages installed on the BIG-IP.
 
 Perform the following steps to complete this task:
 
-#. From your ``Linux Server`, run the following command:
+#. From your Linux Server run the following command:
 
    ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
@@ -39,15 +38,15 @@ Perform the following steps to complete this task:
         "selfLink": "https://localhost/mgmt/shared/iapp/global-installed-packages"
       }
 
-#. We can see here that no RPM has been installed on this platform
+#. We can see here that no RPM has been installed on this system.
 
 Task 2 - Install our RPM
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The installation is performed via the iControl REST API
+Installation is performed via the iControl REST API
 ``package-management-tasks`` service. Performing an HTTP ``POST`` to this
-service with the ``INSTALL`` operation, the location and name of the
-iControlLX package is all it takes:
+service with the ``INSTALL`` operation, the location and the name of the
+iControl LX package is all that is necessary to install it.
 
 Here is the syntax:
 
@@ -91,13 +90,13 @@ Perform the following steps to complete this task:
       }
 
 #. Note the ``id``. If you now query the ``package-managment-tasks`` resource
-   and append the ``id``, you can get the status of the install.
+   and append the ``id``, you can view the status of the install.
 
    From your terminal:
 
    ``curl -k -u admin:admin  https://10.1.1.245/mgmt/shared/iapp/package-management-tasks/4d62ae98-5302-41ee-8057-479b28372b9f | jq``
 
-   .. WARNING::  Replace the ID in the curl command
+   .. NOTE::  Replace the ID in the curl command
       (``4d62ae98-5302-41ee-8057-479b28372b9f``) with your own ``id``
 
    Output:
@@ -221,7 +220,7 @@ Perform the following steps to complete this task:
       Wed, 18 Oct 2017 13:27:21 GMT - config: [RestWorker] /ilxe_lab/hello_world has started. Name:HelloWorld
      Wed, 18 Oct 2017 13:27:21 GMT - info: DEBUG: HelloWorld - onStart - the default message body is: { "value": "Congratulations on your lab!" }
 
-#. We can see here that our iControl LX extension has been added to ``restnoded``
+#. We can see here that our iControl LX extension has been added to ``restnoded``.
 
 Task 3 - Test our iControl Extension
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

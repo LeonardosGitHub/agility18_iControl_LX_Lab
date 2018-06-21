@@ -1,8 +1,7 @@
 Lab 4.2 - Updating the HelloWorld iControl LX Extension
 -------------------------------------------------------
 
-Now that we have a first version of our extension, let's update it so that it
-will be able to do a few more things:
+Now that we have an initial version of our extension up and running, let's enhance it by adding the following capabilities:
 
 * Handle ``POST`` requests
 * Add logging information. Always useful to add logging information to track
@@ -12,18 +11,18 @@ will be able to do a few more things:
 Task 1 - Update our iControl LX Extension - Handle POST Requests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here we will add some more code to our extension to handle ``POST`` requests
-but also add some troubleshooting statements
+Here we will add code to our extension to handle ``POST`` requests,
+as well as add some troubleshooting statements.
 
-First thing to do is enable our ``f5-logger``. This will log messages to
-`/var/log/restnoded/restnoded.log`
+The first thing we must do is enable our ``f5-logger``. This will log messages to
+`/var/log/restnoded/restnoded.log`.
 
 Perform the following steps to complete this task:
 
 #. Execute ``vi /var/config/rest/iapps/HelloWorld/nodejs/hello_world.js`` to
-   edit the file
+   edit the file.
 
-#. Below the first comment
+#. Below the first comment,
 
    .. code::
 
@@ -31,18 +30,18 @@ Perform the following steps to complete this task:
        * A simple iControl LX extension that handles only HTTP GET
        */
 
-   add the following:
+   add the following: (``i, Paste, Enter`` if you use ``vi``)
 
    .. code-block:: javascript
 
       var logger = require('f5-logger').getInstance();
       var DEBUG = true;
 
-#. Save the changes (``ESC ESC :wq`` if you use ``vi`)
+#. Save the changes (``ESC ESC :w`` if you use ``vi``).  
 
-#. Now we will be able to use ``logger`` statement to print information to the
-   `/var/log/restnoded/restnoded.log` log file.  We can also turn on/off all
-   logging by changing the value of the DEBUG variable to false
+#. Now we will be able to use the ``logger`` statement to print information to the
+   `/var/log/restnoded/restnoded.log` log file.  We can also enable/disable all
+   logging by changing the value of the DEBUG variable to false.
 
 
    .. NOTE:: Here is an EXAMPLE of a logger statement (DO NOT PUT THIS INTO
@@ -55,7 +54,7 @@ Perform the following steps to complete this task:
          }
 
 #. We may also want to create a VARIABLE for our default JSON response of
-   ``Hello World!``. This way, if we need to change it at some point, we only
+   ``Hello World!``. This way if we ever need to change it, we'll only
    need to change it in a single location.
 
 #. Under ``var DEBUG = true;`` add:
@@ -93,15 +92,15 @@ Perform the following steps to complete this task:
         this.completeRestOperation(restOperation);
       };
 
-   Here the only thing we did was to:
+   Here's what we've done:
 
    * Add a ``logger`` statement so that we can track when our extension is
      called with a ``GET`` request
 
    * Replace our static response ``{ value: "Hello World!" }`` with our variable
 
-#. *Under* our ``onGet`` prototype, we will now add an OnPost prototype to
-   handle ``POST`` request with our extension.
+#. Below our ``onGet`` prototype, we will now add an OnPost prototype to
+   handle ``POST`` requests with our extension.
 
    Add the following code below the ``onGet`` prototype:
 
@@ -203,15 +202,14 @@ Perform the following steps to complete this task:
 
       module.exports = HelloWorld;
 
-   * The lines starting with ``//`` are comments. It's always good to add
-     comments to your code to help people read/understand your code... the
-     bigger the code is, the more important it is to provide proper commented
-     code
-   * ``var newState = restOperation.getBody();`` - with this statement, we
+   * The lines starting with ``//`` are comments. It's always good to comment your code to help people read/understand your code... the
+     more code there is, the more important it is to provide properly commented
+     code.
+   * ``var newState = restOperation.getBody();`` With this statement we
      retrieve the PAYLOAD that was sent in the POST request and we show this
-     payload in the following logger command
-   * ``var name = newState.name;`` - with this, we assign the name parameter's
-     value (send with the POST request) to the name variable.
+     payload in the following logger command.
+   * ``var name = newState.name;`` With this statement we assign the name parameter's
+     value (sent with the POST request) to the name variable.
    * The following if/else statement determines whether the variable name is
      empty or not (if the POST payload didn't contain a name parameter) and
      depending on this will do the following:
@@ -223,19 +221,17 @@ Perform the following steps to complete this task:
 
 #. Make sure you save your updated file.
 
-#. Time to test our code!  Open another ssh session to your BIG-IP
-   platform and run the following command:
+#. Time to test our code!  Open another SSH session to the BIG-IP and run the following command:
 
    ``bigstart restart restnoded ; tail -f /var/log/restnoded/restnoded.log``
 
-#. Review the logs and make sure that it doesn't mention any error/issue in
+#. Review the logs to make sure there aren't any errors or issues with
    your updated file.
 
    .. NOTE::
 
-    Keep this ssh session open just to monitor your logs and open a new one.
-    Easier to have one window to track/monitor your logging information and
-    use another one to update your code/send curl command
+    Keep this SSH session open to monitor your logs.
+    It's easier to have one window for logs and a separate one for issuing commands. 
 
 #. You should have something like this:
 
@@ -294,7 +290,7 @@ Perform the following steps to complete this task:
       Tue, 17 Oct 2017 13:38:24 GMT - info: DEBUG: HelloWorld - onPost request, no name parameter provided... using default value
 
 We now have an iControl LX extension that is able to handle ``GET`` and ``POST``
-requests but also provide debugging information.
+requests as well as provide debugging information.
 
 Task 2 - Update our iControl LX Extension - Perform a REST API Call
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -302,13 +298,13 @@ Task 2 - Update our iControl LX Extension - Perform a REST API Call
 Right now, our iControl LX extension provides a default message that is set at
 the beginning of our code. If this "content" is owned by someone else, it may
 be inefficient to have it directly in the code. Let's see how we could leverage
-a HTTP request to retrieve our default message.
+an HTTP request to retrieve our default message.
 
 For this task, we will do 3 things:
 
 * Add the ``http`` module to our extension
 * Add a new prototype ``onStart`` to our code
-* Perform a HTTP request to GitHub to retrieve our default message
+* Perform an HTTP request to GitHub to retrieve our default message
 
 Perform the following tasks to complete this task:
 
@@ -380,18 +376,18 @@ Perform the following tasks to complete this task:
       success();
       };
 
-#. The purpose of this code is to retrieve the file:
-   `helloworld_resp <http://s3-eu-west-1.amazonaws.com/nicolas-labs/helloworld_resp.json>`_
+#. The purpose of this code is to retrieve the file
+   `helloworld_resp <http://s3-eu-west-1.amazonaws.com/nicolas-labs/helloworld_resp.json>`_.
 
 #. This file will give us the default payload we should return when we receive
-   a request
+   a request.
 
-#. Make sure you save your updated file. Once it's done, run the following
+#. Make sure you save your updated file. Then run the following
    command:
 
    ``bigstart restart restnoded ; tail -f /var/log/restnoded/restnoded.log``
 
-#. Review the logs and make sure that it doesn't mention any error/issue in
+#. Review the logs to make sure there aren't any errors or issues with
    your updated file.
 
    You should have something like this:
@@ -451,9 +447,9 @@ Perform the following tasks to complete this task:
       }
       Wed, 18 Oct 2017 09:33:38 GMT - info: DEBUG: HelloWorld - onPost request, no name parameter provided... using default value
 
-Task 3 - Take a (5min) break!
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Task 3 - Take a 5 minute break!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Congratulations!!!! You've just modified the behavior of the F5 iControl LX
-extension. Now, take a moment to think about what workflows you could implement
+extension. Now take a moment to think about what workflows you could implement
 to make life easier.

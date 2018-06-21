@@ -2,17 +2,17 @@ Lab 4.5 - Delete the Package
 ----------------------------
 
 It's important to know how to remove an iControl LX extension in case an
-extension is not needed anymore
+extension is not needed anymore.
 
 Task 1 - Verify the 'packageName'
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perform the following steps to complete this task:
 
-#. To verify the package name, from your ``Linux Server``, run the following
+#. To verify the package name, from your Linux Server run the following
    command:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/global-installed-packages | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
 #. The output should be:
 
@@ -52,7 +52,7 @@ Perform the following steps to complete this task:
 #. To delete the HelloWorld iControl LX extension, perform the following POST to
    the 'package-management-tasks' REST resource.
 
-   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"operation": "UNINSTALL","packageName": "HelloWorld-0.1-001.noarch"}' https://10.1.10.20/mgmt/shared/iapp/package-management-tasks | jq``
+   ``curl -H "Content-Type: application/json" -k -u admin:admin -X POST -d '{"operation": "UNINSTALL","packageName": "HelloWorld-0.1-001.noarch"}' https://10.1.1.245/mgmt/shared/iapp/package-management-tasks | jq``
 
 #. A typical response looks like:
 
@@ -78,8 +78,7 @@ Perform the following steps to complete this task:
         "selfLink": "https://localhost/mgmt/shared/iapp/package-management-tasks/075149e9-3448-4ce1-88db-c6d877eff772"
       }
 
-#. If you have a BIG-IP terminal, check it, you should see something like
-   this:
+#. If you have a BIG-IP terminal active you should see a message similar to this:
 
    ``Oct 18 15:18:37 bigip emerg logger: Re-starting restnoded``
 
@@ -91,7 +90,7 @@ Perform the following steps to complete this task:
 #. Perform a ``GET`` request to ``global-installed-packages`` to confirm it is
    no longer there:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/shared/iapp/global-installed-packages | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/shared/iapp/global-installed-packages | jq``
 
 #. The output should look like:
 
@@ -107,7 +106,7 @@ Perform the following steps to complete this task:
 
 #. You can also try to access the iControl LX extension:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world | jq``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world | jq``
 
    Here your request should fail and the output should be similar to this:
 
@@ -125,6 +124,6 @@ Perform the following steps to complete this task:
         }
       }
 
-#. If you connect to the BIG-IP platform, you should see that the folder
+#. If you connect to the BIG-IP, you should see that the folder
    ``HelloWorld`` has been automatically removed from
    ``/var/config/rest/iapps``.

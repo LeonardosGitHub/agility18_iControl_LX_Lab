@@ -15,7 +15,7 @@ Task 1 - Using restOperation()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While you can use restOperation() to create REST transactions (using setURI(),
-setBody(), etc.) to 3rd party systems, F5 recommends you use the built-in
+setBody(), etc.) to 3rd party systems, F5 recommends that you use the built-in
 Node.js functionality.
 
 Task 2 - Creating a REST call using Native Node.js HTTP Requests
@@ -29,7 +29,7 @@ operating state from a JSON file in GitHub:
    :emphasize-lines: 17-41,50
 
    /**
-   * A simple iControlLX extension that handles only HTTP GET
+   * A simple iControl LX extension that handles only HTTP GET
    */
    function HelloWorld() {}
 
@@ -92,12 +92,12 @@ operating state from a JSON file in GitHub:
 
    module.exports = HelloWorld;
 
-With these modifications, anytime a HTTP GET is sent to
+With these modifications, anytime an HTTP GET is sent to
 ``/mgmt/ilxe_lab/hello_world`` it will reply with the JSON blob that was
 retrieved from GitHub when the worker was initially loaded.
 
 Also, note the change in ``onGet()`` to ``restOperation.setBody()``
 
-.. NOTE:: If you've already got the call to another system working in the
-   POSTMAN REST client, you can click the :guilabel:`Generate Code` button to
-   get the Node.js code.
+.. NOTE:: If you already have the call to another system working in the
+   Postman REST client, you can click the :guilabel:`Generate Code` button to
+   obtain the Node.js code.
