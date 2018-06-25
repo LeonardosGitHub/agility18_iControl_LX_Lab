@@ -7,7 +7,7 @@ Task 1 - Understand the 'other' HTTP Verbs
 The iControl LX Framework also provides access to the following HTTP verbs:
 ``POST``, ``PUT``, ``PATCH`` and ``DELETE``. 
 
-In this lab; you will learn which HTTP verb to use.
+In this lab you will learn which HTTP verb to use.
 
 POST is for Creating Resources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,8 +68,7 @@ resource. For example, let's say I want to change the ``role`` of our
        "role": "manager"
    }
 
-The other properties, in this case ``name`` and ``password``, would remain
-untouched.
+The other properties of the REST resource, in this case ``name`` and ``password``, would be unchanged.
 
 For your iControl LX extension to handle an HTTP ``PATCH``, you must implement
 the ``onPatch()`` HTTP Method processor.

@@ -14,7 +14,7 @@ platform. For this lab, we will use BIG-IP.
 
 Perform the following steps to complete this task:
 
-#. Connect to your BIG-IP platform  via ssh/Putty(``10.1.10.20``)
+#. Connect to your BIG-IP via SSH/Putty(``10.1.1.245``).
 
 
 #. iControl LX extensions reside in ``/var/config/rest/iapps/``. This is where
@@ -25,10 +25,10 @@ Perform the following steps to complete this task:
    .. NOTE:: This folder name is important since this is what will be used as
       the RPM name when we will create our package later.
 
-   * inside the app folder, another folder called ``nodejs`` that will contain
+   * Inside the app folder, another folder called ``nodejs`` that will contain
      your extension
 
-#. Let's create our directory tree. On your BIG-IP platform, execute:
+#. Let's create our directory tree. On your BIG-IP execute the following:
 
    ``mkdir -p /var/config/rest/iapps/HelloWorld/nodejs/``
 
@@ -71,13 +71,13 @@ Perform the following steps to complete this task:
 
       module.exports = HelloWorld;
 
-#. Save the changes (``ESC ESC :wq`` if you use ``vi`)
+#. Save the changes (``ESC ESC :wq`` if you use ``vi``).
 
 #. Once our extension is created, we need to load it into ``restnoded``. When
-   an extension is loaded from a RPM, it is done automatically. However here,
-   we will need to do it ourselves
+   an extension is loaded from an RPM, it is done automatically. However in this case
+   we will need to do it ourselves.
 
-   Use the following command on BIG-IP to make ``restnoded`` aware of our
+   Use the following command on the BIG-IP to make ``restnoded`` aware of our
    extension:
 
    ``restcurl shared/nodejs/loader-path-config -d '{"workerPath": "/var/config/rest/iapps/HelloWorld"}'``
@@ -118,7 +118,7 @@ Task 2 - Check our iControl LX Extension is Working
 
 Perform the following steps to complete this task:
 
-#. In your web browser, navigate to ``https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+#. In your web browser, navigate to ``https://10.1.1.245/mgmt/ilxe_lab/hello_world``.
 
 #. You should see something like this:
 
@@ -126,14 +126,14 @@ Perform the following steps to complete this task:
       :align: center
       :scale: 50%
 
-#. You could also use ``curl`` in CLI (from BIG-IP CLI for example):
+#. You could also use ``curl`` from a command line (from the BIG-IP CLI for example):
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world``
 
-   Or a REST client like POSTMAN.
+   Or a REST client like Postman.
 
 #. Another test is to connect to our ``/example`` uri. Navigate with your
-   browser to ``https://10.1.10.20/mgmt/ilxe_lab/hello_world/example``
+   browser to ``https://10.1.1.245/mgmt/ilxe_lab/hello_world/example``.
 
 #. You should see something like this:
 
@@ -141,13 +141,11 @@ Perform the following steps to complete this task:
       :align: center
       :scale: 50%
 
-#. You can also use curl in CLI:
+#. You can use ``curl`` from a command line for this as well:
 
-   ``curl -k -u admin:admin https://10.1.10.20/mgmt/ilxe_lab/hello_world/example``
+   ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world/example``
 
-.. NOTE:: You may NOT want to use admin priviledges to leverage an extension.
-   In many situation the extension may be needed only by a specific user and
-   then you should be able to enforce some RBAC policies here. BIG-IP 13.1 will
-   provide this capability (`BIG-IP RBAC API`_).
+.. NOTE:: You may NOT want to use admin privileges to leverage an extension.
+   In many situations an extension may only be needed by specific users, in which case you would be able to enforce RBAC policies. BIG-IP version 13.1 provides this capability (`BIG-IP RBAC API`_).
 
 .. _BIG-IP RBAC API: https://hive.f5.com/docs/DOC-45844

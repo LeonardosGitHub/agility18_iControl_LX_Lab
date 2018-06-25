@@ -50,14 +50,14 @@ Perform the following steps to complete this task:
 
 #. In this collection you have different things you can do:
 
-   * Deploy a HTTP and/or TCP Service
+   * Deploy an HTTP and/or TCP Service
    * Delete a Service
 
 
 #. For each workflow you want to trigger, make sure that you do the Calls in
    the order they are set in the folder. Make sure to review the response payload
 
-   For example to deploy a HTTP Service, in the folder ``Create-Service-HTTP``:
+   For example to deploy an HTTP Service, in the folder ``Create-Service-HTTP``:
 
    1. Click ``Request a token from BIG-IP`` and click :guilabel:`Send`
    2. Click ``Increase Auth token timeout`` and click :guilabel:`Send`
@@ -132,7 +132,7 @@ Use Newman
 
 #. You already have a few scripts setup to deploy/delete services:
 
-   * ``2_Create_HTTP_Service``: will create a HTTP based service
+   * ``2_Create_HTTP_Service``: will create an HTTP based service
    * ``3_Create_TCP_Service``:  will create a TCP based service
    * ``4_Delete_HTTP_Service``: will delete the created HTTP based service
    * ``5_Delete_TCP_Service``: will delete the created TCP based service

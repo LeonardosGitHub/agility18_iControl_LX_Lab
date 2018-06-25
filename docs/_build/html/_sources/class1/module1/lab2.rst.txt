@@ -5,7 +5,7 @@ Understand the iControl & iControl LX Logs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In Lab 1.1 we explored the two key daemons responsible for iControl
-REST, and iControl LX extensions. The two logs for these daemons are:
+REST and iControl LX extensions. The two logs for these daemons are:
 
 ``/var/log/restjavad.0.log``
 
@@ -28,14 +28,14 @@ Perform the following steps to complete this task:
    ``tail -f /var/log/restnoded/restnoded.log``
 
 #. Log output will now be printed as soon as it occurs.  To stop the output and
-   return to a shell type ``Ctrl+c``
+   return to a shell type ``Ctrl+c``.
 
 Task 2 - Combining Commands, for Extra Efficiency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To ensure you don't miss any output while your iControl LX extension
 is loading, you can execute the ``restnoded restart`` command, and the ``tail``
-commands together using the separator ``;``
+commands together using the separator ``;``.
 
 For example:
 

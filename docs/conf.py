@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = u'Agility iControlLX extensions lab'
+project = u'Agility 2018 iControl LX Extensions Lab'
 copyright = u'2018, F5'
 author = u'F5'
 
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'AgilityiControlLXextensionslab.tex', u'Agility iControlLX extensions lab Documentation',
+    (master_doc, 'AgilityiControlLXextensionslab.tex', u'Agility iControl LX Extensions Lab Documentation',
      u'F5', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'agilityicontrollxextensionslab', u'Agility iControlLX extensions lab Documentation',
+    (master_doc, 'agilityicontrollxextensionslab', u'Agility iControl LX Extensions Lab Documentation',
      [author], 1)
 ]
 
@@ -152,7 +152,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'AgilityiControlLXextensionslab', u'Agility iControlLX extensions lab Documentation',
+    (master_doc, 'AgilityiControlLXextensionslab', u'Agility iControl LX Extensions Lab Documentation',
      author, 'AgilityiControlLXextensionslab', 'One line description of project.',
      'Miscellaneous'),
 ]
