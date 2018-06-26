@@ -2,17 +2,17 @@ Lab 4.3 - Create a New iControl LX Extension RPM
 ------------------------------------------------
 
 Here, our curl commands will return a fair amount of output. To make it more
-readable, we will need ``jq``.  ``jq`` is not available on BIG-IP.
+readable we will need ``jq``.  ``jq`` is not available on BIG-IP.
 
-To run the next curl commands, do it from the Linux server(``10.1.1.252``). It's already
-defined in PUTTY. Login: ``student``, Password: ``student``
+To run the following curl commands, do it from the Linux server(``10.1.1.252``). It's already
+defined in PUTTY. Login: ``external_user``, Password: ``P@ssw0rd!``
 
 Task 1 - Create a new RPM for the Updated iControl LX Extension
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The minimum requirement to build an iControlLX package is the ``appName``, which
+The minimum requirement to build an iControl LX package is the ``appName``, which
 must match the directory name you use in ``/var/config/rest/iapps`` to store
-your extension. In our lab, the folder's name is ``HelloWorld``
+your extension. In our lab, the folder's name is ``HelloWorld``.
 
 Here is the REST command to start the package creation:
 
@@ -107,7 +107,7 @@ Task 3 - Retrieving your iControl LX Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note also in the build-package completion response above, the
-``builtRpmPackageFilePath`` field, it should look like this:
+``builtRpmPackageFilePath`` field should look like this:
 
 ``"builtRpmPackageFilePath": "/var/config/rest/iapps/RPMS/HelloWorld-0.1-001.noarch.rpm"``
 
@@ -122,11 +122,11 @@ Task 4 - Remove the iControl Extension
 Now that we have our RPM, we may want to remove what we create ourselves
 (the HelloWorld folder in `/var/config/rest/iapps` and also that it is loaded
 in restnoded). Since we started the iControl extension from scratch, we will
-need to remove it also manually.
+need to remove it manually.
 
 Perform the following steps to complete this task:
 
-#. On BIG-IP, run the following command:
+#. On the BIG-IP run the following command:
 
    ``restcurl shared/nodejs/loader-path-config``
 
@@ -174,9 +174,9 @@ Perform the following steps to complete this task:
       }
       Oct 18 14:33:06 bigip emerg logger: Re-starting restnoded
 
-#. As you can see ``restnoded`` got restarted automatically to remove the extension.
+#. As you can see ``restnoded`` was restarted automatically to remove the extension.
 
-#. You can validate that your extension has been removed from ``restnoded`` by
+#. You can validate that your extension was removed from ``restnoded`` by
    trying to access it again (run this command from the Linux Server):
 
    ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world | jq``
@@ -197,7 +197,7 @@ Perform the following steps to complete this task:
         }
       }
 
-#. You can now delete your working directory to complete erase this extension
-   from your BIG-IP platform. from the BIG-IP CLI, run this command:
+#. You can now delete your working directory to completely erase this extension
+   from your BIG-IP. From the BIG-IP CLI run this command:
 
    ``rm -rf /var/config/rest/iapps/HelloWorld``

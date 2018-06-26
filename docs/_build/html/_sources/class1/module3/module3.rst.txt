@@ -6,7 +6,7 @@ how to handle HTTP GETs (and other methods), and interact with 3rd party
 systems.
 
 .. NOTE:: This module will **only be about reviewing an existing extension**.
-   In Module 4, we will create our own ``HelloWorld`` extension
+   In Module 4, we will create our own ``HelloWorld`` extension.
 
 **Exercises in this Module**
 

@@ -56,4 +56,4 @@ Perform the following steps to complete this task:
 Task 2 - Wait for Your Deployment to Be Started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Starting the deployment will take some time, be patient (5-10 minutes)
+Starting the deployment will take some time (5-10 minutes), please be patient.
