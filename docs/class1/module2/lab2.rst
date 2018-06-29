@@ -63,7 +63,7 @@ Task 4 - Login as the New User
 
 #. Login as the new user (``user42/user42``).
 
-#. Note the different ``displayName`` and ``username``.
+#. Note the different ``User:`` and ``Role:``.
 
    .. image:: ../../_static/class1/module2/lab2-image004.png
       :align: center
