@@ -146,6 +146,5 @@ Perform the following steps to complete this task:
    ``curl -k -u admin:admin https://10.1.1.245/mgmt/ilxe_lab/hello_world/example``
 
 .. NOTE:: You may NOT want to use admin privileges to leverage an extension.
-   In many situations an extension may only be needed by specific users, in which case you would be able to enforce RBAC policies. BIG-IP version 13.1 provides this capability (`BIG-IP RBAC API`_).
+   In many situations an extension may only be needed by specific users, in which case you would be able to enforce RBAC policies. BIG-IP version 13.1 provides this capability.
 
-.. _BIG-IP RBAC API: https://hive.f5.com/docs/DOC-45844
